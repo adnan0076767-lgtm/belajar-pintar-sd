@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Belajar Pintar SD</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f8ff;
+            color: #222;
+        }
+
+        header {
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            color: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        header h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        nav {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 12px;
+        }
+
+        nav a:hover {
+            color: #7c3aed;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        .welcome {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .welcome h2 {
+            color: #2563eb;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .classes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .class-card {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .class-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .class-card .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .class-card h3 {
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+
+        .class-card button {
+            background: #2563eb;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .class-card button:hover {
+            background: #7c3aed;
+        }
+
+        .quiz {
+            margin-top: 50px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .quiz h2 {
+            color: #7c3aed;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+
+        .answers button {
+            display: block;
+            width: 100%;
+            max-width: 500px;
+            margin: 10px auto;
+            padding: 14px;
+            border: 2px solid #2563eb;
+            background: white;
+            color: #2563eb;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .answers button:hover {
+            background: #2563eb;
+            color: white;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        footer {
+            margin-top: 50px;
+            background: #172554;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 30px;
+            }
+
+            nav a {
+                display: inline-block;
+                margin: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>📚 Belajar Pintar SD</h1>
+        <p>Belajar lebih mudah, menyenangkan, dan interaktif!</p>
+    </header>
+
+    <nav>
+        <a href="#beranda">🏠 Beranda</a>
+        <a href="#kelas">📖 Kelas</a>
+        <a href="#kuis">🧠 Kuis</a>
+    </nav>
+
+    <main class="container" id="beranda">
+
+        <section class="welcome">
+            <h2>Selamat Datang! 👋</h2>
+            <p>
+                Ayo belajar bersama dengan materi dan permainan
+                yang menyenangkan.
+            </p>
+        </section>
+
+        <section id="kelas">
+            <h2 style="text-align:center; margin-bottom:25px;">
+                🎓 Pilih Kelas
+            </h2>
+
+            <div class="classes">
+
+                <div class="class-card">
+                    <div class="icon">🌟</div>
+                    <h3>Kelas 1</h3>
+                    <p>Belajar membaca, berhitung, dan mengenal lingkungan.</p>
+                    <button onclick="pilihKelas(1)">Mulai Belajar</button>
+                </div>
+
+                <div class="class-card">
+                    <div class="icon">🚀</div>
+                    <h3>Kelas 2</h3>
+                    <p>Latihan matematika dan Bahasa Indonesia.</p>
+                    <button onclick="pilihKelas(2)">Mulai Belajar</button>
+                </div>
+
+                <div class="class-card">
+                    <div class="icon">📚</div>
+                    <h3>Kelas 3</h3>
+                    <p>Belajar IPA, IPS, matematika, dan bahasa.</p>
+                    <button onclick="pilihKelas(3)">Mulai Belajar</button>
+                </div>
+
+                <div class="class-card">
+                    <div class="icon">🔬</div>
+                    <h3>Kelas 4</h3>
+                    <p>Eksplorasi ilmu pengetahuan dan matematika.</p>
+                    <button onclick="pilihKelas(4)">Mulai Belajar</button>
+                </div>
+
+                <div class="class-card">
+                    <div class="icon">🌎</div>
+                    <h3>Kelas 5</h3>
+                    <p>Belajar sains, sosial, bahasa, dan matematika.</p>
+                    <button onclick="pilihKelas(5)">Mulai Belajar</button>
+                </div>
+
+                <div class="class-card">
+                    <div class="icon">🏆</div>
+                    <h3>Kelas 6</h3>
+                    <p>Persiapan menghadapi ujian dengan latihan soal.</p>
+                    <button onclick="pilihKelas(6)">Mulai Belajar</button>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="quiz" id="kuis">
+
+            <h2>🧠 Kuis Matematika</h2>
+
+            <div class="question">
+                Berapakah hasil dari 7 + 5?
+            </div>
+
+            <div class="answers">
+                <button onclick="jawaban(false)">10</button>
+                <button onclick="jawaban(true)">12</button>
+                <button onclick="jawaban(false)">13</button>
+                <button onclick="jawaban(false)">15</button>
+            </div>
+
+            <div id="result"></div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Belajar Pintar SD</p>
+        <p>Belajar • Bermain • Berprestasi 🌟</p>
+    </footer>
+
+    <script>
+        function pilihKelas(kelas) {
+            alert(
+                "Selamat datang di materi Kelas " +
+                kelas +
+                "! 📚"
+            );
+        }
+
+        function jawaban(benar) {
+            const result = document.getElementById("result");
+
+            if (benar) {
+                result.innerHTML =
+                    "🎉 Jawaban benar! Hebat sekali!";
+                result.style.color = "green";
+            } else {
+                result.innerHTML =
+                    "😊 Belum tepat. Coba lagi!";
+                result.style.color = "red";
+            }
+        }
+    </script>
+
+</body>
+</html>
