@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belajar Pintar SD - Tahap 1</title>
+<title>Belajar Pintar SD</title>
 
 <style>
 
@@ -12,13 +12,13 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial, sans-serif;
+    font-family:Arial,sans-serif;
 }
 
 body{
-    min-height:100vh;
-    background:linear-gradient(135deg,#eef4ff,#f8f0ff);
+    background:linear-gradient(135deg,#eef4ff,#faf5ff);
     color:#222;
+    min-height:100vh;
 }
 
 /* HEADER */
@@ -26,26 +26,29 @@ body{
 header{
     background:linear-gradient(135deg,#2563eb,#7c3aed);
     color:white;
-    padding:25px 20px;
     text-align:center;
+    padding:30px 20px;
 }
 
 header h1{
-    font-size:32px;
-    margin-bottom:7px;
+    font-size:34px;
+    margin-bottom:8px;
 }
 
 header p{
     font-size:16px;
 }
 
-/* NAVIGATION */
+/* NAV */
 
 nav{
     background:white;
     padding:12px;
     text-align:center;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:20;
 }
 
 nav button{
@@ -62,7 +65,7 @@ nav button:hover{
     color:#7c3aed;
 }
 
-/* MAIN */
+/* CONTAINER */
 
 .container{
     max-width:1100px;
@@ -70,31 +73,19 @@ nav button:hover{
     padding:35px 20px;
 }
 
-/* WELCOME */
-
-.welcome{
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.welcome h2{
-    color:#2563eb;
-    margin-bottom:10px;
-}
-
 /* LOGIN */
 
 .login-box{
     max-width:500px;
-    margin:30px auto;
+    margin:20px auto;
     background:white;
     padding:35px;
     border-radius:25px;
-    box-shadow:0 8px 30px rgba(0,0,0,.10);
+    box-shadow:0 8px 30px rgba(0,0,0,.1);
     text-align:center;
 }
 
-.login-box .emoji{
+.login-icon{
     font-size:60px;
     margin-bottom:15px;
 }
@@ -121,6 +112,8 @@ nav button:hover{
 .login-box input:focus{
     border-color:#2563eb;
 }
+
+/* BUTTON */
 
 .primary{
     background:#2563eb;
@@ -158,18 +151,17 @@ nav button:hover{
 
 .student-info{
     display:flex;
-    justify-content:space-between;
     gap:15px;
     flex-wrap:wrap;
-    margin-top:15px;
+    margin-top:18px;
 }
 
 .info{
+    flex:1;
+    min-width:180px;
     background:#eef4ff;
     padding:15px;
     border-radius:12px;
-    flex:1;
-    min-width:180px;
 }
 
 .info strong{
@@ -178,12 +170,12 @@ nav button:hover{
     margin-bottom:5px;
 }
 
-/* CLASS */
+/* KELAS */
 
 .section-title{
     text-align:center;
-    margin:30px 0 20px;
     color:#7c3aed;
+    margin:30px 0 20px;
 }
 
 .classes{
@@ -242,7 +234,98 @@ nav button:hover{
 #selectedMessage{
     margin:15px 0;
     color:#555;
-    font-size:17px;
+}
+
+/* MATERI */
+
+#materiSection{
+    display:none;
+    margin-top:40px;
+}
+
+.materi-header{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    padding:30px;
+    border-radius:22px;
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.materi-header h2{
+    margin-bottom:8px;
+}
+
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+    gap:18px;
+}
+
+.subject-card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.subject-card:hover{
+    transform:translateY(-6px);
+}
+
+.subject-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.subject-card h3{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.subject-card p{
+    color:#666;
+    font-size:14px;
+}
+
+/* CONTENT */
+
+#materiContent{
+    margin-top:25px;
+    display:none;
+}
+
+.lesson-box{
+    background:white;
+    padding:30px;
+    border-radius:22px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    line-height:1.8;
+}
+
+.lesson-box h2{
+    color:#7c3aed;
+    margin-bottom:15px;
+}
+
+.lesson-box h3{
+    color:#2563eb;
+    margin-top:20px;
+    margin-bottom:8px;
+}
+
+.example{
+    background:#eef4ff;
+    padding:18px;
+    border-radius:12px;
+    margin-top:15px;
+}
+
+.back-button{
+    margin-top:20px;
 }
 
 /* FOOTER */
@@ -261,7 +344,7 @@ footer{
 @media(max-width:600px){
 
     header h1{
-        font-size:27px;
+        font-size:28px;
     }
 
     .container{
@@ -274,6 +357,10 @@ footer{
 
     nav button{
         margin:5px;
+    }
+
+    .lesson-box{
+        padding:20px;
     }
 
 }
@@ -305,7 +392,11 @@ footer{
     </button>
 
     <button onclick="keKelas()">
-        🎓 Pilih Kelas
+        🎓 Kelas
+    </button>
+
+    <button onclick="keMateri()">
+        📚 Materi
     </button>
 
 </nav>
@@ -318,16 +409,27 @@ footer{
 
 <section id="beranda">
 
-    <div class="welcome">
+    <div class="login-box">
+
+        <div class="login-icon">
+            📚
+        </div>
 
         <h2>
-            Selamat Datang! 👋
+            Selamat Datang!
         </h2>
 
         <p>
-            Aplikasi belajar sederhana untuk
-            membantu siswa SD belajar dengan menyenangkan.
+            Selamat datang di Belajar Pintar SD.
+            Yuk belajar dengan cara yang menyenangkan!
         </p>
+
+        <button
+            class="primary"
+            onclick="keLogin()"
+        >
+            🚀 Mulai Belajar
+        </button>
 
     </div>
 
@@ -340,7 +442,7 @@ footer{
 
     <div class="login-box">
 
-        <div class="emoji">
+        <div class="login-icon">
             👨‍🎓
         </div>
 
@@ -370,7 +472,7 @@ footer{
 
         <p
             id="pesanNama"
-            style="margin-top:15px;color:red;"
+            style="color:red;margin-top:15px;"
         ></p>
 
     </div>
@@ -424,7 +526,7 @@ footer{
                     ⭐ Poin
                 </strong>
 
-                <span>
+                <span id="poinInfo">
                     0
                 </span>
 
@@ -443,8 +545,6 @@ footer{
     <div class="classes">
 
 
-        <!-- KELAS 1 -->
-
         <div
             class="class-card"
             id="card1"
@@ -454,13 +554,10 @@ footer{
                 🌟
             </div>
 
-            <h3>
-                Kelas 1
-            </h3>
+            <h3>Kelas 1</h3>
 
             <p>
-                Belajar membaca, menulis,
-                berhitung dan mengenal lingkungan.
+                Membaca, menulis dan berhitung dasar.
             </p>
 
             <button
@@ -473,8 +570,6 @@ footer{
         </div>
 
 
-        <!-- KELAS 2 -->
-
         <div
             class="class-card"
             id="card2"
@@ -484,13 +579,10 @@ footer{
                 🚀
             </div>
 
-            <h3>
-                Kelas 2
-            </h3>
+            <h3>Kelas 2</h3>
 
             <p>
-                Belajar matematika,
-                bahasa dan lingkungan.
+                Matematika, bahasa dan lingkungan.
             </p>
 
             <button
@@ -503,8 +595,6 @@ footer{
         </div>
 
 
-        <!-- KELAS 3 -->
-
         <div
             class="class-card"
             id="card3"
@@ -514,13 +604,10 @@ footer{
                 📚
             </div>
 
-            <h3>
-                Kelas 3
-            </h3>
+            <h3>Kelas 3</h3>
 
             <p>
-                Belajar matematika,
-                IPA, IPS dan bahasa.
+                Matematika, IPA, IPS dan bahasa.
             </p>
 
             <button
@@ -533,8 +620,6 @@ footer{
         </div>
 
 
-        <!-- KELAS 4 -->
-
         <div
             class="class-card"
             id="card4"
@@ -544,13 +629,10 @@ footer{
                 🔬
             </div>
 
-            <h3>
-                Kelas 4
-            </h3>
+            <h3>Kelas 4</h3>
 
             <p>
-                Mengenal sains,
-                sosial dan matematika.
+                Sains, sosial dan matematika.
             </p>
 
             <button
@@ -563,8 +645,6 @@ footer{
         </div>
 
 
-        <!-- KELAS 5 -->
-
         <div
             class="class-card"
             id="card5"
@@ -574,13 +654,10 @@ footer{
                 🌎
             </div>
 
-            <h3>
-                Kelas 5
-            </h3>
+            <h3>Kelas 5</h3>
 
             <p>
-                Belajar sains, sosial,
-                bahasa dan matematika.
+                Sains, sosial, bahasa dan matematika.
             </p>
 
             <button
@@ -593,8 +670,6 @@ footer{
         </div>
 
 
-        <!-- KELAS 6 -->
-
         <div
             class="class-card"
             id="card6"
@@ -604,13 +679,10 @@ footer{
                 🏆
             </div>
 
-            <h3>
-                Kelas 6
-            </h3>
+            <h3>Kelas 6</h3>
 
             <p>
-                Latihan soal dan
-                persiapan menghadapi ujian.
+                Latihan soal dan persiapan ujian.
             </p>
 
             <button
@@ -651,6 +723,131 @@ footer{
 </section>
 
 
+<!-- MATERI -->
+
+<section id="materiSection">
+
+    <div class="materi-header">
+
+        <h2>
+            📚 Materi Belajar
+        </h2>
+
+        <p>
+            <span id="materiNama"></span>
+            • Kelas <span id="materiKelas"></span>
+        </p>
+
+    </div>
+
+
+    <div class="subjects">
+
+
+        <div
+            class="subject-card"
+            onclick="bukaMateri('matematika')"
+        >
+
+            <div class="subject-icon">
+                ➕
+            </div>
+
+            <h3>
+                Matematika
+            </h3>
+
+            <p>
+                Belajar angka dan berhitung.
+            </p>
+
+        </div>
+
+
+        <div
+            class="subject-card"
+            onclick="bukaMateri('bahasa')"
+        >
+
+            <div class="subject-icon">
+                🇮🇩
+            </div>
+
+            <h3>
+                Bahasa Indonesia
+            </h3>
+
+            <p>
+                Membaca dan memahami bahasa.
+            </p>
+
+        </div>
+
+
+        <div
+            class="subject-card"
+            onclick="bukaMateri('ipa')"
+        >
+
+            <div class="subject-icon">
+                🔬
+            </div>
+
+            <h3>
+                IPA
+            </h3>
+
+            <p>
+                Mengenal alam dan makhluk hidup.
+            </p>
+
+        </div>
+
+
+        <div
+            class="subject-card"
+            onclick="bukaMateri('ips')"
+        >
+
+            <div class="subject-icon">
+                🌎
+            </div>
+
+            <h3>
+                IPS
+            </h3>
+
+            <p>
+                Mengenal masyarakat dan lingkungan.
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div id="materiContent">
+
+        <div class="lesson-box">
+
+            <div id="isiMateri"></div>
+
+            <button
+                class="primary back-button"
+                onclick="kembaliMateri()"
+            >
+                ⬅️ Kembali ke Mata Pelajaran
+            </button>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
 </main>
 
 
@@ -669,14 +866,20 @@ footer{
 
 <script>
 
-/* DATA SISWA */
+/* =========================
+   DATA SISWA
+========================= */
 
 let namaSiswa = "";
 
 let kelasDipilih = 0;
 
+let poin = 0;
 
-/* MULAI BELAJAR */
+
+/* =========================
+   MULAI BELAJAR
+========================= */
 
 function mulaiBelajar(){
 
@@ -726,28 +929,26 @@ function mulaiBelajar(){
 }
 
 
-/* PILIH KELAS */
+/* =========================
+   PILIH KELAS
+========================= */
 
 function pilihKelas(kelas){
 
     kelasDipilih = kelas;
 
 
-    /* Hapus pilihan sebelumnya */
-
-    for(let i = 1; i <= 6; i++){
+    for(let i=1;i<=6;i++){
 
         document
-            .getElementById("card" + i)
+            .getElementById("card"+i)
             .classList.remove("selected");
 
     }
 
 
-    /* Tandai kelas */
-
     document
-        .getElementById("card" + kelas)
+        .getElementById("card"+kelas)
         .classList.add("selected");
 
 
@@ -760,7 +961,7 @@ function pilihKelas(kelas){
         .innerHTML =
         "🎉 Kamu memilih <strong>Kelas " +
         kelas +
-        "</strong>. Siap untuk belajar?";
+        "</strong>. Siap belajar?";
 
 
     document.getElementById("lanjutButton")
@@ -769,34 +970,409 @@ function pilihKelas(kelas){
 }
 
 
-/* LANJUT BELAJAR */
+/* =========================
+   MASUK MATERI
+========================= */
 
 function lanjutBelajar(){
 
     if(kelasDipilih === 0){
 
         alert(
-            "Silakan pilih kelas terlebih dahulu."
+            "⚠️ Silakan pilih kelas terlebih dahulu."
         );
 
         return;
     }
 
 
-    alert(
-        "🚀 Mantap, " +
-        namaSiswa +
-        "!\n\n" +
-        "Kamu akan masuk ke materi Kelas " +
-        kelasDipilih +
-        ".\n\n" +
-        "Fitur materi akan kita tambahkan pada Tahap 2. 📚"
-    );
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+
+    document.getElementById("materiSection")
+        .style.display = "block";
+
+
+    document.getElementById("materiNama")
+        .textContent = namaSiswa;
+
+
+    document.getElementById("materiKelas")
+        .textContent = kelasDipilih;
+
+
+    document.getElementById("materiSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 
 }
 
 
-/* NAVIGASI */
+/* =========================
+   MATERI
+========================= */
+
+function bukaMateri(mapel){
+
+    const content =
+        document.getElementById("isiMateri");
+
+    document.getElementById("materiContent")
+        .style.display = "block";
+
+
+    let teks = "";
+
+
+    if(mapel === "matematika"){
+
+        teks = matematika();
+
+    }
+
+    if(mapel === "bahasa"){
+
+        teks = bahasaIndonesia();
+
+    }
+
+    if(mapel === "ipa"){
+
+        teks = ipa();
+
+    }
+
+    if(mapel === "ips"){
+
+        teks = ips();
+
+    }
+
+
+    content.innerHTML = teks;
+
+
+    document.getElementById("materiContent")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================
+   MATEMATIKA
+========================= */
+
+function matematika(){
+
+    if(kelasDipilih <= 2){
+
+        return `
+            <h2>➕ Matematika Kelas ${kelasDipilih}</h2>
+
+            <h3>Belajar Berhitung</h3>
+
+            <p>
+                Angka digunakan untuk menghitung
+                jumlah benda di sekitar kita.
+            </p>
+
+            <div class="example">
+                <strong>Contoh:</strong><br><br>
+                2 + 3 = <strong>5</strong><br>
+                7 - 2 = <strong>5</strong>
+            </div>
+
+            <h3>Latihan</h3>
+
+            <p>
+                Coba hitung: 4 + 5 = ?
+            </p>
+        `;
+
+    }
+
+
+    if(kelasDipilih <= 4){
+
+        return `
+            <h2>➕ Matematika Kelas ${kelasDipilih}</h2>
+
+            <h3>Perkalian</h3>
+
+            <p>
+                Perkalian adalah penjumlahan
+                yang dilakukan berulang kali.
+            </p>
+
+            <div class="example">
+                <strong>Contoh:</strong><br><br>
+                3 × 4 = <strong>12</strong><br>
+                karena 4 + 4 + 4 = 12.
+            </div>
+
+            <h3>Latihan</h3>
+
+            <p>
+                Coba hitung: 5 × 3 = ?
+            </p>
+        `;
+
+    }
+
+
+    return `
+        <h2>➕ Matematika Kelas ${kelasDipilih}</h2>
+
+        <h3>Pecahan</h3>
+
+        <p>
+            Pecahan digunakan untuk menunjukkan
+            sebagian dari keseluruhan.
+        </p>
+
+        <div class="example">
+            <strong>Contoh:</strong><br><br>
+            1/2 berarti satu dari dua bagian yang sama.
+        </div>
+
+        <h3>Latihan</h3>
+
+        <p>
+            Jika sebuah kue dibagi menjadi 4 bagian
+            sama besar dan kamu mengambil 1 bagian,
+            maka pecahannya adalah <strong>1/4</strong>.
+        </p>
+    `;
+
+}
+
+
+/* =========================
+   BAHASA INDONESIA
+========================= */
+
+function bahasaIndonesia(){
+
+    if(kelasDipilih <= 2){
+
+        return `
+            <h2>🇮🇩 Bahasa Indonesia Kelas ${kelasDipilih}</h2>
+
+            <h3>Mengenal Kalimat</h3>
+
+            <p>
+                Kalimat adalah kumpulan kata yang
+                memiliki makna.
+            </p>
+
+            <div class="example">
+                <strong>Contoh:</strong><br><br>
+                Saya suka membaca buku.
+            </div>
+        `;
+
+    }
+
+
+    if(kelasDipilih <= 4){
+
+        return `
+            <h2>🇮🇩 Bahasa Indonesia Kelas ${kelasDipilih}</h2>
+
+            <h3>Ide Pokok</h3>
+
+            <p>
+                Ide pokok adalah gagasan utama
+                yang terdapat dalam sebuah paragraf.
+            </p>
+
+            <div class="example">
+                <strong>Contoh:</strong><br><br>
+                Membaca buku dapat menambah
+                pengetahuan dan wawasan.
+            </div>
+        `;
+
+    }
+
+
+    return `
+        <h2>🇮🇩 Bahasa Indonesia Kelas ${kelasDipilih}</h2>
+
+        <h3>Memahami Teks</h3>
+
+        <p>
+            Saat membaca teks, kita perlu memahami
+            informasi penting yang disampaikan.
+        </p>
+
+        <div class="example">
+            <strong>Tips:</strong><br><br>
+            Bacalah judul, cari ide pokok,
+            lalu pahami informasi pendukung.
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   IPA
+========================= */
+
+function ipa(){
+
+    if(kelasDipilih <= 2){
+
+        return `
+            <h2>🔬 IPA Kelas ${kelasDipilih}</h2>
+
+            <h3>Makhluk Hidup</h3>
+
+            <p>
+                Manusia, hewan dan tumbuhan
+                termasuk makhluk hidup.
+            </p>
+
+            <div class="example">
+                Makhluk hidup membutuhkan makanan,
+                air dan udara.
+            </div>
+        `;
+
+    }
+
+
+    if(kelasDipilih <= 4){
+
+        return `
+            <h2>🔬 IPA Kelas ${kelasDipilih}</h2>
+
+            <h3>Tumbuhan</h3>
+
+            <p>
+                Tumbuhan membutuhkan air,
+                cahaya matahari dan udara
+                untuk tumbuh.
+            </p>
+
+            <div class="example">
+                🌱 Akar menyerap air dari tanah.
+            </div>
+        `;
+
+    }
+
+
+    return `
+        <h2>🔬 IPA Kelas ${kelasDipilih}</h2>
+
+        <h3>Sistem Tata Surya</h3>
+
+        <p>
+            Tata surya terdiri dari Matahari
+            dan benda-benda langit yang mengitarinya.
+        </p>
+
+        <div class="example">
+            ☀️ Matahari adalah pusat tata surya.
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   IPS
+========================= */
+
+function ips(){
+
+    if(kelasDipilih <= 2){
+
+        return `
+            <h2>🌎 IPS Kelas ${kelasDipilih}</h2>
+
+            <h3>Lingkungan Sekitar</h3>
+
+            <p>
+                Lingkungan adalah tempat kita
+                tinggal dan melakukan kegiatan.
+            </p>
+
+            <div class="example">
+                Contoh lingkungan:
+                rumah, sekolah dan taman.
+            </div>
+        `;
+
+    }
+
+
+    if(kelasDipilih <= 4){
+
+        return `
+            <h2>🌎 IPS Kelas ${kelasDipilih}</h2>
+
+            <h3>Keragaman Indonesia</h3>
+
+            <p>
+                Indonesia memiliki banyak suku,
+                bahasa, budaya dan tradisi.
+            </p>
+
+            <div class="example">
+                🇮🇩 Perbedaan merupakan kekayaan
+                bangsa Indonesia.
+            </div>
+        `;
+
+    }
+
+
+    return `
+        <h2>🌎 IPS Kelas ${kelasDipilih}</h2>
+
+        <h3>Sejarah Indonesia</h3>
+
+        <p>
+            Indonesia memiliki sejarah panjang
+            dalam perjuangan menuju kemerdekaan.
+        </p>
+
+        <div class="example">
+            🇮🇩 Kemerdekaan Indonesia diproklamasikan
+            pada 17 Agustus 1945.
+        </div>
+    `;
+
+}
+
+
+/* =========================
+   KEMBALI MATERI
+========================= */
+
+function kembaliMateri(){
+
+    document.getElementById("materiContent")
+        .style.display = "none";
+
+    document.getElementById("materiSection")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* =========================
+   NAVIGASI
+========================= */
 
 function keBeranda(){
 
@@ -832,6 +1408,34 @@ function keKelas(){
 
 
     document.getElementById("dashboard")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+function keMateri(){
+
+    if(kelasDipilih === 0){
+
+        alert(
+            "Silakan masukkan nama dan pilih kelas terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    document.getElementById("dashboard")
+        .style.display = "none";
+
+
+    document.getElementById("materiSection")
+        .style.display = "block";
+
+
+    document.getElementById("materiSection")
         .scrollIntoView({
             behavior:"smooth"
         });
