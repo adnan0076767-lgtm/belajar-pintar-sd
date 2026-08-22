@@ -4,18 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belajar Pintar SD V5</title>
+<title>Belajar Pintar SD V6</title>
 
 <style>
 *{
+    box-sizing:border-box;
     margin:0;
     padding:0;
-    box-sizing:border-box;
     font-family:Arial,sans-serif;
-}
-
-html{
-    scroll-behavior:smooth;
 }
 
 body{
@@ -33,7 +29,7 @@ header{
 
 header h1{
     font-size:36px;
-    margin-bottom:8px;
+    margin-bottom:10px;
 }
 
 header p{
@@ -41,13 +37,13 @@ header p{
 }
 
 nav{
-    background:white;
-    padding:12px;
-    text-align:center;
-    box-shadow:0 3px 15px rgba(0,0,0,.10);
     position:sticky;
     top:0;
     z-index:100;
+    background:white;
+    padding:12px;
+    text-align:center;
+    box-shadow:0 3px 15px rgba(0,0,0,.1);
 }
 
 nav button{
@@ -56,8 +52,8 @@ nav button{
     color:#2563eb;
     font-weight:bold;
     cursor:pointer;
-    margin:5px 10px;
-    font-size:15px;
+    padding:8px 12px;
+    margin:3px;
 }
 
 nav button:hover{
@@ -67,7 +63,7 @@ nav button:hover{
 .container{
     max-width:1100px;
     margin:auto;
-    padding:35px 20px;
+    padding:30px 18px;
 }
 
 section{
@@ -83,7 +79,7 @@ section{
 
 .hero{
     text-align:center;
-    padding:50px 25px;
+    padding:45px 25px;
 }
 
 .hero-icon{
@@ -100,31 +96,34 @@ section{
 .hero p{
     color:#666;
     line-height:1.7;
-    max-width:700px;
-    margin:0 auto 25px;
+    margin-bottom:25px;
+}
+
+button{
+    transition:.2s;
 }
 
 .primary{
     background:#2563eb;
     color:white;
-    border:none;
-    padding:13px 22px;
+    border:0;
     border-radius:12px;
+    padding:13px 22px;
     cursor:pointer;
     font-weight:bold;
-    font-size:15px;
 }
 
 .primary:hover{
     background:#7c3aed;
+    transform:translateY(-2px);
 }
 
 .secondary{
     background:#e8edff;
     color:#2563eb;
-    border:none;
-    padding:12px 20px;
+    border:0;
     border-radius:12px;
+    padding:13px 22px;
     cursor:pointer;
     font-weight:bold;
 }
@@ -132,241 +131,176 @@ section{
 .danger{
     background:#fee2e2;
     color:#dc2626;
-    border:none;
-    padding:12px 20px;
+    border:0;
     border-radius:12px;
+    padding:12px 18px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.login-box{
-    max-width:520px;
-    margin:auto;
-    text-align:center;
-}
-
-.login-icon{
-    font-size:60px;
-    margin-bottom:15px;
-}
-
-.login-box h2{
-    color:#2563eb;
-    margin-bottom:10px;
-}
-
-.login-box p{
-    color:#666;
-    margin-bottom:20px;
-    line-height:1.6;
-}
-
-.login-box input{
+.input{
     width:100%;
     padding:15px;
     border:2px solid #dbe4ff;
     border-radius:12px;
+    margin:12px 0;
     font-size:16px;
     outline:none;
-    margin-bottom:15px;
 }
 
-.login-box input:focus{
+.input:focus{
     border-color:#2563eb;
 }
 
-.dashboard-head{
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    align-items:center;
-    flex-wrap:wrap;
+.center{
+    text-align:center;
 }
 
-.dashboard-head h2{
-    color:#2563eb;
+.hidden{
+    display:none!important;
 }
 
-.student-info{
+.dashboard-top{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    grid-template-columns:2fr 1fr 1fr;
     gap:15px;
-    margin-top:20px;
+    margin-bottom:25px;
 }
 
-.info{
-    background:#eef4ff;
-    padding:18px;
-    border-radius:15px;
+.stat{
+    background:white;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.07);
 }
 
-.info strong{
+.stat-icon{
+    font-size:32px;
+}
+
+.stat strong{
     display:block;
     color:#2563eb;
-    margin-bottom:7px;
+    font-size:24px;
+    margin-top:7px;
 }
 
-.progress-area{
-    margin-top:20px;
-}
-
-.progress{
-    height:14px;
-    background:#e5e7eb;
-    border-radius:20px;
-    overflow:hidden;
-    margin-top:10px;
-}
-
-.progress-bar{
-    height:100%;
-    width:0%;
-    background:linear-gradient(90deg,#2563eb,#7c3aed);
-    transition:.4s;
-}
-
-.section-title{
+.title{
     text-align:center;
     color:#7c3aed;
-    margin:35px 0 20px;
+    margin:30px 0 20px;
 }
 
-.classes{
+.classes,
+.subjects{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
     gap:18px;
 }
 
-.class-card{
+.class-card,
+.subject-card{
     background:white;
-    padding:25px;
     border-radius:20px;
+    padding:25px;
     text-align:center;
     box-shadow:0 5px 18px rgba(0,0,0,.08);
+    cursor:pointer;
     transition:.3s;
 }
 
-.class-card:hover{
-    transform:translateY(-5px);
+.class-card:hover,
+.subject-card:hover{
+    transform:translateY(-6px);
 }
 
 .class-card.selected{
     border:3px solid #2563eb;
 }
 
-.class-icon{
-    font-size:45px;
+.icon{
+    font-size:48px;
     margin-bottom:10px;
 }
 
-.class-card h3{
+.class-card h3,
+.subject-card h3{
     color:#2563eb;
     margin-bottom:8px;
 }
 
-.class-card p{
+.class-card p,
+.subject-card p{
     color:#666;
     line-height:1.5;
-    min-height:45px;
+    font-size:14px;
 }
 
 .class-card button{
     margin-top:15px;
 }
 
-.start-area{
+.materi-header{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    border-radius:22px;
+    padding:30px;
     text-align:center;
+    margin-bottom:25px;
+}
+
+.lesson{
     margin-top:25px;
-}
-
-.subjects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:18px;
-}
-
-.subject-card{
-    background:white;
-    padding:25px;
-    border-radius:20px;
-    text-align:center;
-    cursor:pointer;
-    box-shadow:0 5px 18px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.subject-card:hover{
-    transform:translateY(-6px);
-}
-
-.subject-icon{
-    font-size:48px;
-    margin-bottom:10px;
-}
-
-.subject-card h3{
-    color:#2563eb;
-    margin-bottom:8px;
-}
-
-.subject-card p{
-    color:#666;
-    font-size:14px;
-    line-height:1.5;
-}
-
-.lesson-box{
     background:white;
     padding:30px;
     border-radius:22px;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    box-shadow:0 6px 20px rgba(0,0,0,.08);
     line-height:1.8;
-    margin-top:25px;
 }
 
-.lesson-box h2{
+.lesson h2{
     color:#7c3aed;
     margin-bottom:15px;
 }
 
-.lesson-box h3{
+.lesson h3{
     color:#2563eb;
     margin-top:20px;
-    margin-bottom:8px;
 }
 
 .example{
     background:#eef4ff;
     padding:18px;
-    border-radius:12px;
-    margin-top:15px;
+    border-radius:14px;
+    margin:15px 0;
 }
 
-.quiz-header{
-    background:linear-gradient(135deg,#2563eb,#7c3aed);
-    color:white;
-    padding:30px;
-    border-radius:22px;
-    text-align:center;
-    margin-bottom:25px;
+.progress-box{
+    background:#e5e7eb;
+    height:14px;
+    border-radius:20px;
+    overflow:hidden;
+    margin:12px 0;
 }
 
-.quiz-box{
+.progress-bar{
+    width:0%;
+    height:100%;
+    background:#2563eb;
+    transition:.4s;
+}
+
+.quiz{
     max-width:750px;
     margin:auto;
-}
-
-.question-number{
-    color:#7c3aed;
-    font-weight:bold;
-    margin-bottom:10px;
 }
 
 .question{
     font-size:22px;
     font-weight:bold;
     line-height:1.5;
-    margin:25px 0;
+    margin:20px 0;
 }
 
 .answers{
@@ -375,11 +309,10 @@ section{
 }
 
 .answer{
-    width:100%;
     padding:16px;
     border:2px solid #dbe4ff;
-    border-radius:12px;
     background:white;
+    border-radius:12px;
     text-align:left;
     cursor:pointer;
     font-size:16px;
@@ -387,7 +320,6 @@ section{
 
 .answer:hover{
     background:#eef4ff;
-    border-color:#2563eb;
 }
 
 .answer.correct{
@@ -404,73 +336,60 @@ section{
     cursor:not-allowed;
 }
 
-.quiz-buttons{
+.quiz-controls{
     display:flex;
     justify-content:space-between;
-    gap:10px;
     margin-top:25px;
+    gap:10px;
     flex-wrap:wrap;
 }
 
-.result-box{
-    max-width:600px;
-    margin:auto;
+.result{
     text-align:center;
-}
-
-.result-icon{
-    font-size:75px;
 }
 
 .score{
-    font-size:60px;
-    font-weight:bold;
+    font-size:65px;
     color:#2563eb;
-    margin:15px 0;
+    font-weight:bold;
+    margin:15px;
 }
 
-.result-message{
-    font-size:20px;
-    margin:15px 0 25px;
+.badge{
+    display:inline-block;
+    background:#fef3c7;
+    color:#92400e;
+    padding:10px 18px;
+    border-radius:30px;
+    font-weight:bold;
+    margin:10px;
 }
 
-.achievement{
-    margin-top:25px;
-    background:#fff7ed;
-    border-radius:18px;
-    padding:20px;
-}
-
-.achievement h3{
-    color:#ea580c;
-    margin-bottom:10px;
-}
-
-.hidden{
-    display:none !important;
+.share-box{
+    background:linear-gradient(135deg,#ecfeff,#eef2ff);
+    text-align:center;
+    padding:30px;
+    border-radius:22px;
+    margin-top:30px;
 }
 
 footer{
-    margin-top:50px;
     background:#172554;
     color:white;
     text-align:center;
-    padding:30px 20px;
+    padding:30px 15px;
     line-height:1.8;
+    margin-top:40px;
 }
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     header h1{
         font-size:28px;
     }
 
-    .container{
-        padding:25px 15px;
-    }
-
-    .card{
-        padding:22px;
+    .dashboard-top{
+        grid-template-columns:1fr;
     }
 
     .question{
@@ -478,7 +397,8 @@ footer{
     }
 
     nav button{
-        margin:5px;
+        font-size:13px;
+        padding:7px;
     }
 }
 </style>
@@ -488,171 +408,169 @@ footer{
 
 <header>
     <h1>📚 Belajar Pintar SD</h1>
-    <p>Belajar • Bermain • Berlatih • Berprestasi</p>
+    <p>Belajar • Berlatih • Bermain • Berprestasi</p>
 </header>
 
 <nav>
-    <button onclick="keBeranda()">🏠 Beranda</button>
-    <button onclick="keDashboard()">🎓 Kelas</button>
-    <button onclick="keMateri()">📚 Materi</button>
-    <button onclick="bukaQuiz()">🧠 Kuis</button>
+    <button onclick="beranda()">🏠 Beranda</button>
+    <button onclick="mulai()">👤 Mulai</button>
+    <button onclick="kelas()">🎓 Kelas</button>
+    <button onclick="materi()">📚 Materi</button>
+    <button onclick="kuis()">🧠 Kuis</button>
+    <button onclick="bagikan()">📤 Bagikan</button>
 </nav>
 
 <main class="container">
 
 <!-- BERANDA -->
-<section id="beranda">
+<section id="home">
+
     <div class="card hero">
 
-        <div class="hero-icon">🚀</div>
+        <div class="hero-icon">🎓</div>
 
-        <h2>Selamat Datang di Belajar Pintar SD</h2>
+        <h2>Selamat Datang!</h2>
 
         <p>
-            Website belajar sederhana untuk anak SD.
-            Pilih kelas, baca materi, kerjakan kuis,
-            kumpulkan poin dan lihat perkembangan belajar.
+            Selamat datang di <strong>Belajar Pintar SD</strong>.
+            Website belajar sederhana untuk membantu siswa SD
+            belajar dengan lebih menyenangkan.
         </p>
 
-        <button class="primary" onclick="mulaiAplikasi()">
+        <button class="primary" onclick="mulai()">
             🚀 Mulai Belajar
         </button>
 
     </div>
+
+    <div class="share-box">
+
+        <h2>📤 Bagikan ke Teman</h2>
+
+        <p style="margin:12px 0 20px;">
+            Ajak temanmu belajar bersama!
+        </p>
+
+        <button class="primary" onclick="bagikan()">
+            📱 Bagikan Website
+        </button>
+
+    </div>
+
 </section>
+
 
 <!-- LOGIN -->
 <section id="login" class="hidden">
 
-    <div class="card login-box">
+    <div class="card center">
 
-        <div class="login-icon">👨‍🎓</div>
+        <div class="icon">👨‍🎓</div>
 
-        <h2>Yuk Kenalan!</h2>
+        <h2 style="color:#2563eb;">
+            Yuk Mulai Belajar!
+        </h2>
 
-        <p>
-            Masukkan nama kamu agar data belajar
-            dapat disimpan di perangkat ini.
+        <p style="color:#666;margin:12px 0;">
+            Masukkan nama kamu.
         </p>
 
         <input
-            type="text"
-            id="namaSiswa"
+            class="input"
+            id="nama"
             placeholder="Contoh: Adnan"
             maxlength="30"
         >
 
-        <button class="primary" onclick="simpanNama()">
-            💾 Simpan & Mulai
-        </button>
+        <p id="errorNama" style="color:red;"></p>
 
-        <p id="pesanNama"></p>
+        <button class="primary" onclick="simpanNama()">
+            🚀 Masuk
+        </button>
 
     </div>
 
 </section>
 
+
 <!-- DASHBOARD -->
 <section id="dashboard" class="hidden">
 
-    <div class="card">
+    <div class="card" style="margin-bottom:25px;">
 
-        <div class="dashboard-head">
+        <h2 style="color:#2563eb;">
+            👋 Halo, <span id="namaTampil"></span>!
+        </h2>
 
-            <div>
-                <h2>👋 Halo, <span id="namaTampil"></span>!</h2>
-                <p style="margin-top:8px;color:#666;">
-                    Selamat datang di ruang belajar kamu.
-                </p>
-            </div>
+        <p style="color:#666;margin-top:8px;">
+            Selamat datang di ruang belajar kamu.
+        </p>
 
-            <button class="danger" onclick="resetData()">
-                🗑️ Reset
-            </button>
+    </div>
 
+    <div class="dashboard-top">
+
+        <div class="stat">
+            <div class="stat-icon">👤</div>
+            <span>Nama</span>
+            <strong id="statNama">-</strong>
         </div>
 
-        <div class="student-info">
-
-            <div class="info">
-                <strong>👤 Nama</strong>
-                <span id="namaInfo">-</span>
-            </div>
-
-            <div class="info">
-                <strong>🎓 Kelas</strong>
-                <span id="kelasInfo">Belum dipilih</span>
-            </div>
-
-            <div class="info">
-                <strong>⭐ Poin</strong>
-                <span id="poinInfo">0</span>
-            </div>
-
-            <div class="info">
-                <strong>🏆 Kuis</strong>
-                <span id="kuisInfo">0</span>
-            </div>
-
+        <div class="stat">
+            <div class="stat-icon">🎓</div>
+            <span>Kelas</span>
+            <strong id="statKelas">-</strong>
         </div>
 
-        <div class="progress-area">
-
-            <strong>📊 Progress Belajar</strong>
-
-            <div class="progress">
-                <div class="progress-bar" id="mainProgress"></div>
-            </div>
-
-            <p id="progressText" style="margin-top:8px;color:#666;">
-                0% selesai
-            </p>
-
+        <div class="stat">
+            <div class="stat-icon">⭐</div>
+            <span>Poin</span>
+            <strong id="statPoin">0</strong>
         </div>
 
     </div>
 
-    <h2 class="section-title">🎓 Pilih Kelas Kamu</h2>
+    <h2 class="title">🎓 Pilih Kelas</h2>
 
     <div class="classes">
 
-        <div class="class-card" id="card1">
-            <div class="class-icon">🌟</div>
+        <div class="class-card" id="kelas1">
+            <div class="icon">🌟</div>
             <h3>Kelas 1</h3>
-            <p>Membaca, menulis dan berhitung dasar.</p>
+            <p>Belajar membaca, menulis dan berhitung.</p>
             <button class="primary" onclick="pilihKelas(1)">Pilih</button>
         </div>
 
-        <div class="class-card" id="card2">
-            <div class="class-icon">🚀</div>
+        <div class="class-card" id="kelas2">
+            <div class="icon">🚀</div>
             <h3>Kelas 2</h3>
             <p>Matematika, bahasa dan lingkungan.</p>
             <button class="primary" onclick="pilihKelas(2)">Pilih</button>
         </div>
 
-        <div class="class-card" id="card3">
-            <div class="class-icon">📚</div>
+        <div class="class-card" id="kelas3">
+            <div class="icon">📚</div>
             <h3>Kelas 3</h3>
             <p>Matematika, IPA, IPS dan bahasa.</p>
             <button class="primary" onclick="pilihKelas(3)">Pilih</button>
         </div>
 
-        <div class="class-card" id="card4">
-            <div class="class-icon">🔬</div>
+        <div class="class-card" id="kelas4">
+            <div class="icon">🔬</div>
             <h3>Kelas 4</h3>
             <p>Sains, sosial dan matematika.</p>
             <button class="primary" onclick="pilihKelas(4)">Pilih</button>
         </div>
 
-        <div class="class-card" id="card5">
-            <div class="class-icon">🌎</div>
+        <div class="class-card" id="kelas5">
+            <div class="icon">🌎</div>
             <h3>Kelas 5</h3>
             <p>Sains, sosial, bahasa dan matematika.</p>
             <button class="primary" onclick="pilihKelas(5)">Pilih</button>
         </div>
 
-        <div class="class-card" id="card6">
-            <div class="class-icon">🏆</div>
+        <div class="class-card" id="kelas6">
+            <div class="icon">🏆</div>
             <h3>Kelas 6</h3>
             <p>Latihan soal dan persiapan ujian.</p>
             <button class="primary" onclick="pilihKelas(6)">Pilih</button>
@@ -660,35 +578,34 @@ footer{
 
     </div>
 
-    <div class="card start-area">
+    <div class="card center" style="margin-top:25px;">
 
-        <h2>📖 Kelas Pilihan</h2>
+        <h2>📖 Pilihan Kamu</h2>
 
-        <p id="selectedMessage" style="margin:15px 0;color:#666;">
-            Silakan pilih kelas terlebih dahulu.
+        <p id="pilihanKelas" style="margin:12px 0;color:#666;">
+            Belum memilih kelas.
         </p>
 
         <button
-            class="primary"
-            id="lanjutButton"
-            onclick="lanjutBelajar()"
-            style="display:none;"
-        >
-            🚀 Masuk Materi
+            id="btnMateri"
+            class="primary hidden"
+            onclick="materi()">
+            📚 Mulai Materi
         </button>
 
     </div>
 
 </section>
 
+
 <!-- MATERI -->
 <section id="materiSection" class="hidden">
 
-    <div class="quiz-header">
+    <div class="materi-header">
 
         <h2>📚 Materi Belajar</h2>
 
-        <p style="margin-top:8px;">
+        <p>
             <span id="materiNama"></span>
             • Kelas <span id="materiKelas"></span>
         </p>
@@ -697,53 +614,45 @@ footer{
 
     <div class="subjects">
 
-        <div class="subject-card" onclick="bukaMateri('matematika')">
-            <div class="subject-icon">➕</div>
+        <div class="subject-card" onclick="bukaMateri('mtk')">
+            <div class="icon">➕</div>
             <h3>Matematika</h3>
-            <p>Angka, operasi hitung, pecahan dan bangun.</p>
+            <p>Angka, operasi hitung dan pecahan.</p>
         </div>
 
-        <div class="subject-card" onclick="bukaMateri('bahasa')">
-            <div class="subject-icon">🇮🇩</div>
+        <div class="subject-card" onclick="bukaMateri('indo')">
+            <div class="icon">🇮🇩</div>
             <h3>Bahasa Indonesia</h3>
-            <p>Membaca, menulis dan memahami bacaan.</p>
+            <p>Membaca, menulis dan memahami teks.</p>
         </div>
 
         <div class="subject-card" onclick="bukaMateri('ipa')">
-            <div class="subject-icon">🔬</div>
+            <div class="icon">🔬</div>
             <h3>IPA</h3>
-            <p>Makhluk hidup, energi dan lingkungan.</p>
+            <p>Makhluk hidup dan lingkungan.</p>
         </div>
 
         <div class="subject-card" onclick="bukaMateri('ips')">
-            <div class="subject-icon">🌎</div>
+            <div class="icon">🌎</div>
             <h3>IPS</h3>
             <p>Masyarakat, budaya dan lingkungan.</p>
         </div>
 
     </div>
 
-    <div id="materiContent" class="hidden">
+    <div id="lesson" class="lesson hidden">
 
-        <div class="lesson-box">
+        <div id="lessonContent"></div>
 
-            <div id="isiMateri"></div>
-
-            <button
-                class="secondary"
-                onclick="kembaliMateri()"
-                style="margin-top:20px;"
-            >
-                ⬅️ Kembali
-            </button>
-
-        </div>
+        <button class="primary" onclick="tutupMateri()">
+            ⬅️ Kembali
+        </button>
 
     </div>
 
-    <div style="text-align:center;margin-top:25px;">
+    <div class="center" style="margin-top:25px;">
 
-        <button class="primary" onclick="bukaQuiz()">
+        <button class="primary" onclick="kuis()">
             🧠 Kerjakan Kuis
         </button>
 
@@ -751,48 +660,47 @@ footer{
 
 </section>
 
+
 <!-- KUIS -->
 <section id="quizSection" class="hidden">
 
-    <div class="quiz-header">
+    <div class="materi-header">
 
-        <h2>🧠 Kuis Belajar Pintar</h2>
+        <h2>🧠 Kuis Belajar</h2>
 
-        <p style="margin-top:8px;">
-            Kelas <span id="quizKelas"></span>
-            • <span id="quizNama"></span>
+        <p>
+            <span id="quizNama"></span>
+            • Kelas <span id="quizKelas"></span>
         </p>
 
     </div>
 
-    <div class="card quiz-box">
+    <div class="card quiz">
 
-        <div class="question-number" id="questionNumber">
+        <strong id="nomorSoal" style="color:#7c3aed;">
             Soal 1 dari 10
+        </strong>
+
+        <div class="progress-box">
+            <div id="progress" class="progress-bar"></div>
         </div>
 
-        <div class="progress">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
-
-        <div class="question" id="question">
+        <div id="pertanyaan" class="question">
             Pertanyaan
         </div>
 
-        <div class="answers" id="answers"></div>
+        <div id="jawaban" class="answers"></div>
 
-        <div class="quiz-buttons">
+        <div class="quiz-controls">
 
-            <button class="secondary" onclick="kembaliDariQuiz()">
-                ⬅️ Kembali
+            <button class="secondary" onclick="materi()">
+                ⬅️ Materi
             </button>
 
             <button
-                class="primary"
-                id="nextButton"
-                onclick="soalBerikutnya()"
-                style="display:none;"
-            >
+                id="next"
+                class="primary hidden"
+                onclick="berikutnya()">
                 Berikutnya ➡️
             </button>
 
@@ -802,50 +710,52 @@ footer{
 
 </section>
 
+
 <!-- HASIL -->
-<section id="resultSection" class="hidden">
+<section id="hasil" class="hidden">
 
-    <div class="card result-box">
+    <div class="card result">
 
-        <div class="result-icon" id="resultIcon">🏆</div>
+        <div class="icon">🏆</div>
 
-        <h2>🎉 Kuis Selesai!</h2>
+        <h2 style="color:#2563eb;">
+            Kuis Selesai!
+        </h2>
 
         <p style="margin-top:10px;">
-            Hebat, <strong id="resultNama"></strong>!
+            Hebat, <strong id="hasilNama"></strong>!
         </p>
 
         <div class="score">
-            <span id="scoreNumber">0</span>
+            <span id="nilai">0</span>
         </div>
 
-        <div class="result-message" id="resultMessage">
-            Bagus!
+        <div id="badge" class="badge">
+            🌟
         </div>
+
+        <p id="pesanHasil" style="margin:15px 0;">
+            Bagus!
+        </p>
 
         <p>
             Jawaban benar:
-            <strong id="correctNumber">0</strong>
-            dari 10 soal.
+            <strong id="benar">0</strong>/10
         </p>
 
-        <div class="achievement">
-            <h3>🏅 Pencapaian</h3>
-            <p id="achievementText">
-                Terus belajar untuk mendapatkan pencapaian!
-            </p>
-        </div>
+        <p style="margin-top:10px;">
+            ⭐ Total poin:
+            <strong id="hasilPoin">0</strong>
+        </p>
 
         <br>
 
-        <button class="primary" onclick="ulangQuiz()">
+        <button class="primary" onclick="mulaiKuis()">
             🔄 Ulangi Kuis
         </button>
 
-        <br><br>
-
-        <button class="secondary" onclick="keMateri()">
-            📚 Kembali ke Materi
+        <button class="secondary" onclick="materi()">
+            📚 Materi
         </button>
 
     </div>
@@ -856,7 +766,7 @@ footer{
 
 <footer>
 
-    <p><strong>📚 Belajar Pintar SD</strong></p>
+    <strong>📚 Belajar Pintar SD</strong>
 
     <p>
         Belajar • Berlatih • Berprestasi
@@ -868,138 +778,138 @@ footer{
 
 </footer>
 
+
 <script>
 
 /* =========================
-   DATA APLIKASI
+DATA
 ========================= */
 
-let namaSiswa = localStorage.getItem("bps_nama") || "";
+let namaSiswa =
+    localStorage.getItem("namaSiswa") || "";
 
 let kelasDipilih =
-    Number(localStorage.getItem("bps_kelas")) || 0;
+    Number(localStorage.getItem("kelasDipilih")) || 0;
 
 let poin =
-    Number(localStorage.getItem("bps_poin")) || 0;
+    Number(localStorage.getItem("poin")) || 0;
 
-let jumlahKuis =
-    Number(localStorage.getItem("bps_kuis")) || 0;
-
-let soalSekarang = 0;
-
-let jawabanBenar = 0;
-
-let sudahMenjawab = false;
+let soalSekarang=0;
+let benar=0;
+let sudahJawab=false;
 
 
 /* =========================
-   BANK SOAL
+BANK SOAL
 ========================= */
 
-const bankSoal = {
-
+const soal={
 1:[
-{q:"Berapakah hasil dari 2 + 3?",a:["4","5","6","7"],correct:1},
-{q:"Berapakah hasil dari 5 - 2?",a:["2","3","4","5"],correct:1},
-{q:"Ada berapa hari dalam satu minggu?",a:["5","6","7","8"],correct:2},
-{q:"Warna daun biasanya adalah...",a:["Merah","Biru","Hijau","Hitam"],correct:2},
-{q:"Hewan yang berbunyi 'meong' adalah...",a:["Ayam","Kucing","Sapi","Ikan"],correct:1},
-{q:"Berapakah hasil 1 + 4?",a:["3","4","5","6"],correct:2},
-{q:"Benda yang digunakan untuk menulis adalah...",a:["Pensil","Piring","Sepatu","Bantal"],correct:0},
-{q:"Mata digunakan untuk...",a:["Mendengar","Melihat","Berjalan","Makan"],correct:1},
-{q:"Berapakah hasil 3 + 3?",a:["5","6","7","8"],correct:1},
-{q:"Matahari terbit dari arah...",a:["Barat","Utara","Timur","Selatan"],correct:2}
+["2 + 3 = ...",["4","5","6","7"],1],
+["5 - 2 = ...",["2","3","4","5"],1],
+["Jumlah hari dalam seminggu?",["5","6","7","8"],2],
+["Warna daun biasanya?",["Merah","Biru","Hijau","Hitam"],2],
+["Hewan berbunyi meong?",["Ayam","Kucing","Sapi","Ikan"],1],
+["1 + 4 = ...",["3","4","5","6"],2],
+["Untuk menulis digunakan?",["Pensil","Piring","Sepatu","Bantal"],0],
+["Mata digunakan untuk?",["Mendengar","Melihat","Berjalan","Makan"],1],
+["3 + 3 = ...",["5","6","7","8"],1],
+["Matahari terbit dari?",["Barat","Utara","Timur","Selatan"],2]
 ],
 
 2:[
-{q:"Berapakah hasil 7 + 5?",a:["10","11","12","13"],correct:2},
-{q:"Berapakah hasil 10 - 4?",a:["5","6","7","8"],correct:1},
-{q:"2 × 3 = ...",a:["5","6","7","8"],correct:1},
-{q:"Lawan kata besar adalah...",a:["Panjang","Kecil","Tinggi","Lebar"],correct:1},
-{q:"Hewan yang menghasilkan susu adalah...",a:["Sapi","Ayam","Ikan","Burung"],correct:0},
-{q:"Bulan setelah Januari adalah...",a:["Maret","April","Februari","Mei"],correct:2},
-{q:"3 × 4 = ...",a:["10","11","12","13"],correct:2},
-{q:"Kita bernapas menggunakan...",a:["Mata","Hidung","Telinga","Tangan"],correct:1},
-{q:"Ada berapa bulan dalam satu tahun?",a:["10","11","12","13"],correct:2},
-{q:"Tempat siswa belajar disebut...",a:["Pasar","Sekolah","Rumah sakit","Terminal"],correct:1}
+["7 + 5 = ...",["10","11","12","13"],2],
+["10 - 4 = ...",["5","6","7","8"],1],
+["2 × 3 = ...",["5","6","7","8"],1],
+["Lawan kata besar?",["Panjang","Kecil","Tinggi","Lebar"],1],
+["Hewan penghasil susu?",["Sapi","Ayam","Ikan","Burung"],0],
+["Bulan setelah Januari?",["Maret","April","Februari","Mei"],2],
+["3 × 4 = ...",["10","11","12","13"],2],
+["Kita bernapas menggunakan?",["Mata","Hidung","Telinga","Tangan"],1],
+["Jumlah bulan dalam setahun?",["10","11","12","13"],2],
+["Tempat siswa belajar?",["Pasar","Sekolah","Terminal","Stasiun"],1]
 ],
 
 3:[
-{q:"6 × 4 = ...",a:["20","22","24","26"],correct:2},
-{q:"36 : 6 = ...",a:["4","5","6","7"],correct:2},
-{q:"Ibukota Indonesia adalah...",a:["Bandung","Jakarta","Surabaya","Medan"],correct:1},
-{q:"Tumbuhan membuat makanan terutama di...",a:["Akar","Batang","Daun","Bunga"],correct:2},
-{q:"Hewan yang mengalami metamorfosis adalah...",a:["Kupu-kupu","Kucing","Sapi","Kambing"],correct:0},
-{q:"1 jam sama dengan...",a:["30 menit","45 menit","60 menit","90 menit"],correct:2},
-{q:"Lawan kata rajin adalah...",a:["Pandai","Malas","Cepat","Baik"],correct:1},
-{q:"Air membeku pada suhu...",a:["0°C","10°C","50°C","100°C"],correct:0},
-{q:"Indonesia berada di benua...",a:["Eropa","Asia","Afrika","Amerika"],correct:1},
-{q:"Hasil dari 25 + 15 adalah...",a:["30","35","40","45"],correct:2}
+["6 × 4 = ...",["20","22","24","26"],2],
+["36 : 6 = ...",["4","5","6","7"],2],
+["Ibu kota Indonesia?",["Bandung","Jakarta","Surabaya","Medan"],1],
+["Tumbuhan membuat makanan di?",["Akar","Batang","Daun","Bunga"],2],
+["Hewan yang mengalami metamorfosis?",["Kupu-kupu","Kucing","Sapi","Kambing"],0],
+["1 jam sama dengan?",["30 menit","45 menit","60 menit","90 menit"],2],
+["Lawan kata rajin?",["Pandai","Malas","Cepat","Baik"],1],
+["Air membeku pada suhu?",["0°C","10°C","50°C","100°C"],0],
+["Indonesia berada di benua?",["Eropa","Asia","Afrika","Amerika"],1],
+["25 + 15 = ...",["30","35","40","45"],2]
 ],
 
 4:[
-{q:"12 × 5 = ...",a:["50","55","60","65"],correct:2},
-{q:"144 : 12 = ...",a:["10","11","12","13"],correct:2},
-{q:"Planet tempat manusia tinggal adalah...",a:["Mars","Venus","Bumi","Jupiter"],correct:2},
-{q:"Sumber energi terbesar bagi bumi adalah...",a:["Bulan","Matahari","Angin","Air"],correct:1},
-{q:"Bagian tumbuhan yang menyerap air adalah...",a:["Daun","Bunga","Akar","Buah"],correct:2},
-{q:"Semboyan bangsa Indonesia adalah...",a:["Tut Wuri Handayani","Bhinneka Tunggal Ika","Merdeka Belajar","Garuda Pancasila"],correct:1},
-{q:"Pulau terbesar di Indonesia adalah...",a:["Jawa","Bali","Kalimantan","Madura"],correct:2},
-{q:"2/4 sama dengan...",a:["1/2","1/3","2/3","3/4"],correct:0},
-{q:"Alat untuk mengukur suhu adalah...",a:["Penggaris","Termometer","Timbangan","Jam"],correct:1},
-{q:"Proses tumbuhan membuat makanan disebut...",a:["Respirasi","Fotosintesis","Evaporasi","Adaptasi"],correct:1}
+["12 × 5 = ...",["50","55","60","65"],2],
+["144 : 12 = ...",["10","11","12","13"],2],
+["Planet tempat manusia tinggal?",["Mars","Venus","Bumi","Jupiter"],2],
+["Sumber energi terbesar bumi?",["Bulan","Matahari","Angin","Air"],1],
+["Bagian tumbuhan menyerap air?",["Daun","Bunga","Akar","Buah"],2],
+["Semboyan bangsa Indonesia?",["Tut Wuri Handayani","Bhinneka Tunggal Ika","Merdeka Belajar","Garuda Pancasila"],1],
+["Pulau terbesar Indonesia?",["Jawa","Bali","Kalimantan","Madura"],2],
+["2/4 sama dengan?",["1/2","1/3","2/3","3/4"],0],
+["Alat mengukur suhu?",["Penggaris","Termometer","Timbangan","Jam"],1],
+["Proses tumbuhan membuat makanan?",["Respirasi","Fotosintesis","Evaporasi","Adaptasi"],1]
 ],
 
 5:[
-{q:"25 × 4 = ...",a:["90","100","110","120"],correct:1},
-{q:"250 : 5 = ...",a:["40","50","60","70"],correct:1},
-{q:"Planet terbesar dalam tata surya adalah...",a:["Bumi","Mars","Jupiter","Venus"],correct:2},
-{q:"Organ utama untuk memompa darah adalah...",a:["Paru-paru","Jantung","Ginjal","Lambung"],correct:1},
-{q:"1/2 + 1/4 = ...",a:["1/4","2/4","3/4","4/4"],correct:2},
-{q:"Proklamasi Kemerdekaan Indonesia dibacakan pada...",a:["17 Agustus 1945","10 November 1945","1 Juni 1945","28 Oktober 1928"],correct:0},
-{q:"Satuan untuk mengukur massa adalah...",a:["Meter","Liter","Kilogram","Detik"],correct:2},
-{q:"Hewan pemakan tumbuhan disebut...",a:["Karnivora","Herbivora","Omnivora","Insektivora"],correct:1},
-{q:"Garis khatulistiwa melewati wilayah...",a:["Indonesia","Jepang","Inggris","Mesir"],correct:0},
-{q:"Benda yang dapat ditarik magnet adalah...",a:["Kayu","Plastik","Besi","Kertas"],correct:2}
+["25 × 4 = ...",["90","100","110","120"],1],
+["250 : 5 = ...",["40","50","60","70"],1],
+["Planet terbesar?",["Bumi","Mars","Jupiter","Venus"],2],
+["Organ memompa darah?",["Paru-paru","Jantung","Ginjal","Lambung"],1],
+["1/2 + 1/4 = ...",["1/4","2/4","3/4","4/4"],2],
+["Proklamasi dibacakan pada?",["17 Agustus 1945","10 November 1945","1 Juni 1945","28 Oktober 1928"],0],
+["Satuan massa?",["Meter","Liter","Kilogram","Detik"],2],
+["Hewan pemakan tumbuhan?",["Karnivora","Herbivora","Omnivora","Insektivora"],1],
+["Garis khatulistiwa melewati?",["Indonesia","Jepang","Inggris","Mesir"],0],
+["Benda yang dapat ditarik magnet?",["Kayu","Plastik","Besi","Kertas"],2]
 ],
 
 6:[
-{q:"25% dari 200 adalah...",a:["25","40","50","75"],correct:2},
-{q:"3/4 sama dengan ... persen.",a:["25%","50%","75%","80%"],correct:2},
-{q:"Planet terdekat dengan Matahari adalah...",a:["Venus","Mars","Merkurius","Bumi"],correct:2},
-{q:"Alat pernapasan utama manusia adalah...",a:["Jantung","Paru-paru","Lambung","Ginjal"],correct:1},
-{q:"Perubahan air menjadi uap disebut...",a:["Membeku","Menguap","Mengembun","Mencair"],correct:1},
-{q:"Tanggal Sumpah Pemuda adalah...",a:["17 Agustus 1945","28 Oktober 1928","10 November 1945","1 Juni 1945"],correct:1},
-{q:"Hasil dari 15² adalah...",a:["125","200","225","250"],correct:2},
-{q:"Benua terluas di dunia adalah...",a:["Afrika","Asia","Eropa","Australia"],correct:1},
-{q:"Alat untuk mengukur kuat arus listrik adalah...",a:["Voltmeter","Amperemeter","Termometer","Barometer"],correct:1},
-{q:"Sistem yang mengatur seluruh kegiatan tubuh manusia adalah...",a:["Sistem pencernaan","Sistem saraf","Sistem pernapasan","Sistem gerak"],correct:1}
+["25% dari 200?",["25","40","50","75"],2],
+["3/4 sama dengan?",["25%","50%","75%","80%"],2],
+["Planet terdekat Matahari?",["Venus","Mars","Merkurius","Bumi"],2],
+["Alat pernapasan utama?",["Jantung","Paru-paru","Lambung","Ginjal"],1],
+["Air menjadi uap disebut?",["Membeku","Menguap","Mengembun","Mencair"],1],
+["Tanggal Sumpah Pemuda?",["17 Agustus 1945","28 Oktober 1928","10 November 1945","1 Juni 1945"],1],
+["15² = ...",["125","200","225","250"],2],
+["Benua terluas?",["Afrika","Asia","Eropa","Australia"],1],
+["Mengukur kuat arus listrik?",["Voltmeter","Amperemeter","Termometer","Barometer"],1],
+["Sistem yang mengatur kegiatan tubuh?",["Pencernaan","Saraf","Pernapasan","Gerak"],1]
 ]
-
 };
 
 
 /* =========================
-   NAVIGASI SECTION
+NAVIGASI
 ========================= */
 
-function sembunyikanSemua(){
+function sembunyikan(){
 
-    document.getElementById("beranda").classList.add("hidden");
-    document.getElementById("login").classList.add("hidden");
-    document.getElementById("dashboard").classList.add("hidden");
-    document.getElementById("materiSection").classList.add("hidden");
-    document.getElementById("quizSection").classList.add("hidden");
-    document.getElementById("resultSection").classList.add("hidden");
+    [
+    "home",
+    "login",
+    "dashboard",
+    "materiSection",
+    "quizSection",
+    "hasil"
+    ].forEach(id=>{
+        document.getElementById(id)
+        .classList.add("hidden");
+    });
 
 }
 
+function tampil(id){
 
-function tampil(section){
+    sembunyikan();
 
-    sembunyikanSemua();
-
-    document.getElementById(section).classList.remove("hidden");
+    document.getElementById(id)
+    .classList.remove("hidden");
 
     window.scrollTo({
         top:0,
@@ -1008,40 +918,88 @@ function tampil(section){
 
 }
 
+function beranda(){
+    tampil("home");
+}
 
-/* =========================
-   MULAI
-========================= */
+function mulai(){
 
-function mulaiAplikasi(){
+    tampil("login");
 
-    if(namaSiswa){
+    document.getElementById("nama")
+    .value=namaSiswa;
 
-        tampil("dashboard");
-        updateDashboard();
+}
 
-    }else{
+function kelas(){
 
-        tampil("login");
-
+    if(!namaSiswa){
+        mulai();
+        return;
     }
+
+    updateDashboard();
+
+    tampil("dashboard");
+
+}
+
+function materi(){
+
+    if(!namaSiswa){
+        mulai();
+        return;
+    }
+
+    if(!kelasDipilih){
+        kelas();
+        return;
+    }
+
+    document.getElementById("materiNama")
+    .textContent=namaSiswa;
+
+    document.getElementById("materiKelas")
+    .textContent=kelasDipilih;
+
+    tampil("materiSection");
+
+}
+
+function kuis(){
+
+    if(!namaSiswa){
+        mulai();
+        return;
+    }
+
+    if(!kelasDipilih){
+        kelas();
+        return;
+    }
+
+    mulaiKuis();
 
 }
 
 
+/* =========================
+LOGIN
+========================= */
+
 function simpanNama(){
 
-    const input =
-        document.getElementById("namaSiswa");
+    const input=
+        document.getElementById("nama");
 
-    const nama =
+    const nama=
         input.value.trim();
 
-    if(nama===""){
+    if(!nama){
 
-        document.getElementById("pesanNama")
+        document.getElementById("errorNama")
         .textContent=
-        "⚠️ Silakan masukkan nama terlebih dahulu.";
+        "⚠️ Silakan masukkan nama.";
 
         return;
 
@@ -1050,352 +1008,254 @@ function simpanNama(){
     namaSiswa=nama;
 
     localStorage.setItem(
-        "bps_nama",
+        "namaSiswa",
         namaSiswa
     );
 
-    tampil("dashboard");
+    updateDashboard();
+
+    kelas();
+
+}
+
+
+/* =========================
+KELAS
+========================= */
+
+function pilihKelas(n){
+
+    kelasDipilih=n;
+
+    localStorage.setItem(
+        "kelasDipilih",
+        n
+    );
+
+    for(let i=1;i<=6;i++){
+
+        document
+        .getElementById("kelas"+i)
+        .classList.remove("selected");
+
+    }
+
+    document
+    .getElementById("kelas"+n)
+    .classList.add("selected");
+
+    document.getElementById("pilihanKelas")
+    .innerHTML=
+    "🎉 Kamu memilih <strong>Kelas "+
+    n+
+    "</strong>";
+
+    document
+    .getElementById("btnMateri")
+    .classList.remove("hidden");
 
     updateDashboard();
 
 }
 
 
-/* =========================
-   DASHBOARD
-========================= */
-
 function updateDashboard(){
 
     document.getElementById("namaTampil")
     .textContent=namaSiswa;
 
-    document.getElementById("namaInfo")
+    document.getElementById("statNama")
     .textContent=namaSiswa;
 
-    document.getElementById("kelasInfo")
+    document.getElementById("statKelas")
     .textContent=
-    kelasDipilih
-    ? "Kelas "+kelasDipilih
-    : "Belum dipilih";
+        kelasDipilih
+        ? "Kelas "+kelasDipilih
+        : "-";
 
-    document.getElementById("poinInfo")
+    document.getElementById("statPoin")
     .textContent=poin;
 
-    document.getElementById("kuisInfo")
-    .textContent=jumlahKuis;
-
-    const progress=
-    Math.min(100,Math.round((poin/100)*100));
-
-    document.getElementById("mainProgress")
-    .style.width=progress+"%";
-
-    document.getElementById("progressText")
-    .textContent=
-    progress+"% progress belajar";
-
 }
 
 
 /* =========================
-   PILIH KELAS
-========================= */
-
-function pilihKelas(kelas){
-
-    kelasDipilih=kelas;
-
-    localStorage.setItem(
-        "bps_kelas",
-        kelas
-    );
-
-    for(let i=1;i<=6;i++){
-
-        document
-        .getElementById("card"+i)
-        .classList.remove("selected");
-
-    }
-
-    document
-    .getElementById("card"+kelas)
-    .classList.add("selected");
-
-    document.getElementById("kelasInfo")
-    .textContent="Kelas "+kelas;
-
-    document.getElementById("selectedMessage")
-    .innerHTML=
-    "🎉 Kamu memilih <strong>Kelas "+
-    kelas+
-    "</strong>. Siap belajar?";
-
-    document.getElementById("lanjutButton")
-    .style.display="inline-block";
-
-}
-
-
-/* =========================
-   LANJUT BELAJAR
-========================= */
-
-function lanjutBelajar(){
-
-    if(kelasDipilih===0){
-
-        alert("Silakan pilih kelas terlebih dahulu.");
-
-        return;
-
-    }
-
-    keMateri();
-
-}
-
-
-/* =========================
-   MATERI
+MATERI
 ========================= */
 
 function bukaMateri(mapel){
 
-    document
-    .getElementById("materiContent")
-    .classList.remove("hidden");
+    const k=kelasDipilih;
 
-    let teks="";
+    let isi="";
 
-    if(mapel==="matematika"){
-        teks=matematika();
+    if(mapel==="mtk"){
+
+        isi=`
+
+        <h2>➕ Matematika Kelas ${k}</h2>
+
+        <h3>📖 Materi</h3>
+
+        <p>
+        Matematika membantu kita menghitung,
+        membandingkan dan memecahkan masalah
+        dalam kehidupan sehari-hari.
+        </p>
+
+        <h3>💡 Contoh</h3>
+
+        <div class="example">
+
+        ${k<=2
+        ? "2 + 3 = <strong>5</strong><br><br>7 - 2 = <strong>5</strong>"
+        : k<=4
+        ? "3 × 4 = <strong>12</strong><br><br>20 : 5 = <strong>4</strong>"
+        : "1/2 + 1/4 = <strong>3/4</strong><br><br>25% dari 200 = <strong>50</strong>"
+        }
+
+        </div>
+
+        <h3>🎯 Tantangan</h3>
+
+        <p>
+        Coba kerjakan beberapa soal kuis
+        setelah membaca materi.
+        </p>
+
+        `;
+
     }
 
-    if(mapel==="bahasa"){
-        teks=bahasaIndonesia();
+    if(mapel==="indo"){
+
+        isi=`
+
+        <h2>🇮🇩 Bahasa Indonesia Kelas ${k}</h2>
+
+        <h3>📖 Membaca</h3>
+
+        <p>
+        Membaca adalah kegiatan memahami
+        informasi yang terdapat dalam tulisan.
+        </p>
+
+        <h3>💡 Tips Membaca</h3>
+
+        <div class="example">
+
+        1. Baca judul.<br>
+        2. Perhatikan kalimat penting.<br>
+        3. Cari informasi utama.<br>
+        4. Pahami maksud bacaan.
+
+        </div>
+
+        <h3>🎯 Latihan</h3>
+
+        <p>
+        Bacalah sebuah cerita pendek,
+        kemudian ceritakan kembali dengan
+        kata-katamu sendiri.
+        </p>
+
+        `;
+
     }
 
     if(mapel==="ipa"){
-        teks=ipa();
+
+        isi=`
+
+        <h2>🔬 IPA Kelas ${k}</h2>
+
+        <h3>🌱 Makhluk Hidup</h3>
+
+        <p>
+        Manusia, hewan dan tumbuhan
+        termasuk makhluk hidup.
+        </p>
+
+        <div class="example">
+
+        Makhluk hidup membutuhkan
+        makanan, air dan udara.
+
+        </div>
+
+        <h3>🌞 Lingkungan</h3>
+
+        <p>
+        Kita harus menjaga kebersihan
+        lingkungan agar tetap sehat.
+        </p>
+
+        `;
+
     }
 
     if(mapel==="ips"){
-        teks=ips();
+
+        isi=`
+
+        <h2>🌎 IPS Kelas ${k}</h2>
+
+        <h3>🇮🇩 Indonesia</h3>
+
+        <p>
+        Indonesia merupakan negara yang
+        memiliki banyak suku, bahasa,
+        budaya dan tradisi.
+        </p>
+
+        <div class="example">
+
+        Keragaman budaya merupakan
+        kekayaan bangsa Indonesia.
+
+        </div>
+
+        <h3>🤝 Hidup Bersama</h3>
+
+        <p>
+        Kita harus menghargai perbedaan
+        dan bekerja sama dengan orang lain.
+        </p>
+
+        `;
+
     }
 
-    document.getElementById("isiMateri")
-    .innerHTML=teks;
+    document.getElementById("lessonContent")
+    .innerHTML=isi;
 
-    document.getElementById("materiContent")
+    document.getElementById("lesson")
+    .classList.remove("hidden");
+
+    document.getElementById("lesson")
     .scrollIntoView({
         behavior:"smooth"
     });
 
 }
 
+function tutupMateri(){
 
-function matematika(){
-
-    if(kelasDipilih<=2){
-
-        return `
-        <h2>➕ Matematika Kelas ${kelasDipilih}</h2>
-
-        <h3>Belajar Berhitung</h3>
-
-        <p>
-        Matematika membantu kita menghitung
-        benda dan memahami angka.
-        </p>
-
-        <div class="example">
-        <strong>Contoh:</strong><br><br>
-        2 + 3 = 5<br>
-        7 - 2 = 5<br>
-        3 + 4 = 7
-        </div>
-        `;
-
-    }
-
-    if(kelasDipilih<=4){
-
-        return `
-        <h2>✖️ Matematika Kelas ${kelasDipilih}</h2>
-
-        <h3>Perkalian</h3>
-
-        <p>
-        Perkalian adalah penjumlahan yang
-        dilakukan berulang kali.
-        </p>
-
-        <div class="example">
-        3 × 4 = 12<br><br>
-        Artinya: 3 + 3 + 3 + 3 = 12.
-        </div>
-        `;
-
-    }
-
-    return `
-    <h2>➗ Matematika Kelas ${kelasDipilih}</h2>
-
-    <h3>Pecahan</h3>
-
-    <p>
-    Pecahan menunjukkan sebagian dari
-    keseluruhan.
-    </p>
-
-    <div class="example">
-    1/2 berarti satu dari dua bagian yang sama.<br><br>
-    1/2 + 1/4 = 3/4
-    </div>
-    `;
-
-}
-
-
-function bahasaIndonesia(){
-
-    return `
-    <h2>🇮🇩 Bahasa Indonesia Kelas ${kelasDipilih}</h2>
-
-    <h3>Membaca dan Memahami</h3>
-
-    <p>
-    Membaca membantu kita memperoleh
-    informasi dan pengetahuan.
-    </p>
-
-    <div class="example">
-    <strong>Tips membaca:</strong><br>
-    1. Baca judul.<br>
-    2. Baca seluruh teks.<br>
-    3. Cari informasi penting.<br>
-    4. Ceritakan kembali isi bacaan.
-    </div>
-
-    <h3>Kosakata</h3>
-
-    <p>
-    Kosakata adalah kumpulan kata yang
-    kita gunakan dalam berkomunikasi.
-    </p>
-    `;
-
-}
-
-
-function ipa(){
-
-    return `
-    <h2>🔬 IPA Kelas ${kelasDipilih}</h2>
-
-    <h3>Makhluk Hidup</h3>
-
-    <p>
-    Manusia, hewan dan tumbuhan termasuk
-    makhluk hidup.
-    </p>
-
-    <div class="example">
-    Makhluk hidup membutuhkan makanan,
-    air dan udara.
-    </div>
-
-    <h3>Tumbuhan</h3>
-
-    <p>
-    Tumbuhan membutuhkan cahaya matahari,
-    air dan karbon dioksida untuk membuat
-    makanan melalui fotosintesis.
-    </p>
-    `;
-
-}
-
-
-function ips(){
-
-    return `
-    <h2>🌎 IPS Kelas ${kelasDipilih}</h2>
-
-    <h3>Keragaman Indonesia</h3>
-
-    <p>
-    Indonesia memiliki banyak suku,
-    bahasa, budaya dan tradisi.
-    </p>
-
-    <div class="example">
-    🇮🇩 Keragaman merupakan kekayaan
-    bangsa Indonesia.
-    </div>
-
-    <h3>Lingkungan</h3>
-
-    <p>
-    Kita harus menjaga kebersihan lingkungan
-    agar kehidupan menjadi nyaman dan sehat.
-    </p>
-    `;
-
-}
-
-
-function kembaliMateri(){
-
-    document
-    .getElementById("materiContent")
+    document.getElementById("lesson")
     .classList.add("hidden");
 
 }
 
 
 /* =========================
-   KUIS
+KUIS
 ========================= */
 
-function bukaQuiz(){
-
-    if(!namaSiswa){
-
-        alert("Silakan masukkan nama terlebih dahulu.");
-
-        tampil("login");
-
-        return;
-
-    }
-
-    if(kelasDipilih===0){
-
-        alert("Silakan pilih kelas terlebih dahulu.");
-
-        keDashboard();
-
-        return;
-
-    }
-
-    mulaiQuiz();
-
-}
-
-
-function mulaiQuiz(){
+function mulaiKuis(){
 
     soalSekarang=0;
-
-    jawabanBenar=0;
-
-    sudahMenjawab=false;
-
-    tampil("quizSection");
+    benar=0;
+    sudahJawab=false;
 
     document.getElementById("quizNama")
     .textContent=namaSiswa;
@@ -1403,118 +1263,117 @@ function mulaiQuiz(){
     document.getElementById("quizKelas")
     .textContent=kelasDipilih;
 
-    tampilkanSoal();
+    tampil("quizSection");
+
+    tampilSoal();
 
 }
 
+function tampilSoal(){
 
-function tampilkanSoal(){
+    const data=
+        soal[kelasDipilih][soalSekarang];
 
-    const soal =
-    bankSoal[kelasDipilih][soalSekarang];
+    sudahJawab=false;
 
-    sudahMenjawab=false;
-
-    document.getElementById("questionNumber")
+    document.getElementById("nomorSoal")
     .textContent=
     "Soal "+
     (soalSekarang+1)+
     " dari 10";
 
-    document.getElementById("question")
-    .textContent=soal.q;
+    document.getElementById("progress")
+    .style.width=
+    ((soalSekarang)/10*100)+"%";
 
-    const progress=
-    ((soalSekarang)/10)*100;
+    document.getElementById("pertanyaan")
+    .textContent=data[0];
 
-    document.getElementById("progressBar")
-    .style.width=progress+"%";
+    const area=
+        document.getElementById("jawaban");
 
-    const answers=
-    document.getElementById("answers");
+    area.innerHTML="";
 
-    answers.innerHTML="";
+    data[1].forEach((jawaban,i)=>{
 
-    soal.a.forEach(function(jawaban,index){
+        const btn=
+            document.createElement("button");
 
-        const button=
-        document.createElement("button");
+        btn.className="answer";
 
-        button.className="answer";
+        btn.textContent=
+            String.fromCharCode(65+i)+
+            ". "+
+            jawaban;
 
-        button.textContent=
-        String.fromCharCode(65+index)+
-        ". "+
-        jawaban;
-
-        button.onclick=function(){
-
-            pilihJawaban(index,button);
-
+        btn.onclick=()=>{
+            pilihJawaban(i,btn);
         };
 
-        answers.appendChild(button);
+        area.appendChild(btn);
 
     });
 
-    document.getElementById("nextButton")
-    .style.display="none";
+    document
+    .getElementById("next")
+    .classList.add("hidden");
 
 }
 
 
-function pilihJawaban(index,button){
+function pilihJawaban(i,btn){
 
-    if(sudahMenjawab){
-        return;
-    }
+    if(sudahJawab)return;
 
-    sudahMenjawab=true;
+    sudahJawab=true;
 
-    const soal=
-    bankSoal[kelasDipilih][soalSekarang];
+    const data=
+        soal[kelasDipilih][soalSekarang];
 
-    const buttons=
-    document.querySelectorAll(".answer");
+    const semua=
+        document.querySelectorAll(".answer");
 
-    buttons.forEach(function(btn){
-        btn.disabled=true;
+    semua.forEach(b=>{
+        b.disabled=true;
     });
 
-    if(index===soal.correct){
+    if(i===data[2]){
 
-        button.classList.add("correct");
+        btn.classList.add("correct");
 
-        jawabanBenar++;
+        benar++;
 
         poin+=10;
 
         localStorage.setItem(
-            "bps_poin",
+            "poin",
             poin
         );
 
     }else{
 
-        button.classList.add("wrong");
+        btn.classList.add("wrong");
 
-        buttons[soal.correct]
+        semua[data[2]]
         .classList.add("correct");
 
     }
 
-    document.getElementById("nextButton")
-    .style.display="inline-block";
+    updateDashboard();
+
+    document
+    .getElementById("next")
+    .classList.remove("hidden");
 
 }
 
 
-function soalBerikutnya(){
+function berikutnya(){
 
-    if(!sudahMenjawab){
+    if(!sudahJawab){
 
         alert(
-        "Pilih salah satu jawaban terlebih dahulu."
+        "Pilih jawaban terlebih dahulu."
         );
 
         return;
@@ -1525,228 +1384,143 @@ function soalBerikutnya(){
 
     if(soalSekarang>=10){
 
-        tampilkanHasil();
+        tampilHasil();
 
         return;
 
     }
 
-    tampilkanSoal();
+    tampilSoal();
 
 }
 
 
 /* =========================
-   HASIL
+HASIL
 ========================= */
 
-function tampilkanHasil(){
+function tampilHasil(){
 
     const nilai=
-    jawabanBenar*10;
+        benar*10;
 
-    jumlahKuis++;
-
-    localStorage.setItem(
-        "bps_kuis",
-        jumlahKuis
-    );
-
-    tampil("resultSection");
-
-    document.getElementById("resultNama")
+    document.getElementById("hasilNama")
     .textContent=namaSiswa;
 
-    document.getElementById("scoreNumber")
+    document.getElementById("nilai")
     .textContent=nilai;
 
-    document.getElementById("correctNumber")
-    .textContent=jawabanBenar;
+    document.getElementById("benar")
+    .textContent=benar;
+
+    document.getElementById("hasilPoin")
+    .textContent=poin;
 
     let pesan="";
-    let icon="";
+    let badge="";
 
     if(nilai>=90){
 
-        pesan="🏆 Luar biasa! Kamu sangat hebat!";
-        icon="🏆";
+        pesan=
+        "🏆 Luar biasa! Kamu sangat hebat!";
+
+        badge=
+        "🥇 JUARA BELAJAR";
 
     }else if(nilai>=70){
 
-        pesan="🎉 Bagus! Terus tingkatkan belajarmu!";
-        icon="🎉";
+        pesan=
+        "🎉 Bagus! Terus tingkatkan belajarmu!";
+
+        badge=
+        "🥈 PINTAR";
 
     }else if(nilai>=50){
 
-        pesan="💪 Cukup bagus! Ayo terus berlatih!";
-        icon="💪";
+        pesan=
+        "💪 Cukup bagus! Ayo terus berlatih!";
+
+        badge=
+        "🥉 SEMANGAT";
 
     }else{
 
-        pesan="📚 Jangan menyerah! Belajar lagi!";
-        icon="📚";
+        pesan=
+        "📚 Jangan menyerah! Coba belajar lagi.";
+
+        badge=
+        "💪 PANTANG MENYERAH";
 
     }
 
-    document.getElementById("resultMessage")
+    document.getElementById("pesanHasil")
     .textContent=pesan;
 
-    document.getElementById("resultIcon")
-    .textContent=icon;
+    document.getElementById("badge")
+    .textContent=badge;
 
-    if(nilai===100){
-
-        document.getElementById("achievementText")
-        .textContent=
-        "🌟 Bintang Pelajar! Nilai sempurna!";
-
-    }else if(nilai>=80){
-
-        document.getElementById("achievementText")
-        .textContent=
-        "🥇 Hebat! Kamu sudah menguasai banyak materi.";
-
-    }else if(nilai>=60){
-
-        document.getElementById("achievementText")
-        .textContent=
-        "🥈 Terus berlatih agar nilaimu semakin tinggi.";
-
-    }else{
-
-        document.getElementById("achievementText")
-        .textContent=
-        "📖 Yuk baca materi lagi lalu coba kuis kembali.";
-
-    }
-
-}
-
-
-function ulangQuiz(){
-
-    mulaiQuiz();
-
-}
-
-
-function kembaliDariQuiz(){
-
-    keMateri();
+    tampil("hasil");
 
 }
 
 
 /* =========================
-   NAVIGASI
+BAGIKAN
 ========================= */
 
-function keBeranda(){
+function bagikan(){
 
-    tampil("beranda");
+    const url=
+        window.location.href;
+
+    const teks=
+        "📚 Yuk belajar bersama di Belajar Pintar SD! 🚀\n"+
+        url;
+
+    if(navigator.share){
+
+        navigator.share({
+
+            title:"Belajar Pintar SD",
+            text:"Yuk belajar bersama!",
+            url:url
+
+        });
+
+    }else{
+
+        navigator.clipboard
+        .writeText(teks)
+        .then(()=>{
+
+            alert(
+            "✅ Link website berhasil disalin! Silakan kirim ke WhatsApp atau teman."
+            );
+
+        })
+        .catch(()=>{
+
+            prompt(
+            "Salin link ini:",
+            url
+            );
+
+        });
+
+    }
 
 }
 
 
-function keDashboard(){
+/* =========================
+LOAD
+========================= */
 
-    if(!namaSiswa){
-
-        tampil("login");
-
-        return;
-
-    }
-
-    tampil("dashboard");
+if(namaSiswa){
 
     updateDashboard();
 
 }
-
-
-function keMateri(){
-
-    if(!namaSiswa){
-
-        alert(
-        "Silakan masukkan nama terlebih dahulu."
-        );
-
-        tampil("login");
-
-        return;
-
-    }
-
-    if(kelasDipilih===0){
-
-        alert(
-        "Silakan pilih kelas terlebih dahulu."
-        );
-
-        keDashboard();
-
-        return;
-
-    }
-
-    tampil("materiSection");
-
-    document.getElementById("materiNama")
-    .textContent=namaSiswa;
-
-    document.getElementById("materiKelas")
-    .textContent=kelasDipilih;
-
-}
-
-
-/* =========================
-   RESET DATA
-========================= */
-
-function resetData(){
-
-    const yakin=
-    confirm(
-    "Yakin ingin menghapus data belajar di perangkat ini?"
-    );
-
-    if(!yakin){
-        return;
-    }
-
-    localStorage.removeItem("bps_nama");
-    localStorage.removeItem("bps_kelas");
-    localStorage.removeItem("bps_poin");
-    localStorage.removeItem("bps_kuis");
-
-    namaSiswa="";
-    kelasDipilih=0;
-    poin=0;
-    jumlahKuis=0;
-
-    document.getElementById("namaSiswa").value="";
-
-    tampil("beranda");
-
-}
-
-
-/* =========================
-   LOAD AWAL
-========================= */
-
-window.addEventListener("load",function(){
-
-    if(namaSiswa){
-
-        updateDashboard();
-
-    }
-
-});
 
 </script>
 
