@@ -1,312 +1,508 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Belajar Pintar SD</title>
+<title>Belajar Pintar SD</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
 
-        body {
-            background: #f4f8ff;
-            color: #222;
-        }
+body{
+    background:#f4f7ff;
+    color:#222;
+}
 
-        header {
-            background: linear-gradient(135deg, #2563eb, #7c3aed);
-            color: white;
-            text-align: center;
-            padding: 45px 20px;
-        }
+header{
+    background:linear-gradient(135deg,#2563eb,#7c3aed);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
 
-        header h1 {
-            font-size: 38px;
-            margin-bottom: 10px;
-        }
+header h1{
+    font-size:38px;
+    margin-bottom:10px;
+}
 
-        header p {
-            font-size: 18px;
-        }
+header p{
+    font-size:18px;
+}
 
-        nav {
-            background: white;
-            padding: 15px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+nav{
+    background:white;
+    padding:15px;
+    text-align:center;
+    box-shadow:0 3px 12px rgba(0,0,0,.1);
+    position:sticky;
+    top:0;
+    z-index:10;
+}
 
-        nav a {
-            color: #2563eb;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 12px;
-        }
+nav button{
+    border:0;
+    background:none;
+    color:#2563eb;
+    font-weight:bold;
+    margin:5px 10px;
+    cursor:pointer;
+    font-size:15px;
+}
 
-        nav a:hover {
-            color: #7c3aed;
-        }
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:35px 20px;
+}
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+.welcome{
+    text-align:center;
+    margin-bottom:35px;
+}
 
-        .welcome {
-            text-align: center;
-            margin-bottom: 35px;
-        }
+.welcome h2{
+    color:#2563eb;
+    margin-bottom:10px;
+}
 
-        .welcome h2 {
-            color: #2563eb;
-            font-size: 30px;
-            margin-bottom: 10px;
-        }
+.classes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+    gap:20px;
+}
 
-        .classes {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-        }
+.card{
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
 
-        .class-card {
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
+.card:hover{
+    transform:translateY(-6px);
+}
 
-        .class-card:hover {
-            transform: translateY(-8px);
-        }
+.icon{
+    font-size:45px;
+    margin-bottom:12px;
+}
 
-        .class-card .icon {
-            font-size: 45px;
-            margin-bottom: 15px;
-        }
+.card h3{
+    color:#2563eb;
+    margin-bottom:10px;
+}
 
-        .class-card h3 {
-            color: #2563eb;
-            margin-bottom: 10px;
-        }
+button.primary{
+    background:#2563eb;
+    color:white;
+    border:0;
+    padding:12px 20px;
+    border-radius:10px;
+    cursor:pointer;
+    margin-top:15px;
+    font-weight:bold;
+}
 
-        .class-card button {
-            background: #2563eb;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 15px;
-            font-weight: bold;
-        }
+button.primary:hover{
+    background:#7c3aed;
+}
 
-        .class-card button:hover {
-            background: #7c3aed;
-        }
+#materi{
+    display:none;
+    margin-top:40px;
+}
 
-        .quiz {
-            margin-top: 50px;
-            background: white;
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
+.subjects{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:15px;
+    margin-top:20px;
+}
 
-        .quiz h2 {
-            color: #7c3aed;
-            margin-bottom: 20px;
-        }
+.subject{
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    text-align:center;
+    cursor:pointer;
+    box-shadow:0 4px 15px rgba(0,0,0,.07);
+}
 
-        .question {
-            font-size: 20px;
-            margin-bottom: 20px;
-            font-weight: bold;
-        }
+.subject:hover{
+    background:#eef2ff;
+}
 
-        .answers button {
-            display: block;
-            width: 100%;
-            max-width: 500px;
-            margin: 10px auto;
-            padding: 14px;
-            border: 2px solid #2563eb;
-            background: white;
-            color: #2563eb;
-            border-radius: 12px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+.lesson{
+    background:white;
+    margin-top:25px;
+    padding:25px;
+    border-radius:20px;
+    display:none;
+    line-height:1.7;
+    box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
 
-        .answers button:hover {
-            background: #2563eb;
-            color: white;
-        }
+.lesson h3{
+    color:#7c3aed;
+    margin-bottom:12px;
+}
 
-        #result {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 18px;
-        }
+.quiz{
+    margin-top:40px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    text-align:center;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+}
 
-        footer {
-            margin-top: 50px;
-            background: #172554;
-            color: white;
-            text-align: center;
-            padding: 25px;
-        }
+.quiz h2{
+    color:#7c3aed;
+    margin-bottom:20px;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 30px;
-            }
+.question{
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:20px;
+}
 
-            nav a {
-                display: inline-block;
-                margin: 5px;
-            }
-        }
-    </style>
+.answer{
+    display:block;
+    width:100%;
+    max-width:500px;
+    margin:10px auto;
+    padding:14px;
+    background:white;
+    border:2px solid #2563eb;
+    color:#2563eb;
+    border-radius:12px;
+    cursor:pointer;
+}
+
+.answer:hover{
+    background:#2563eb;
+    color:white;
+}
+
+#score{
+    font-size:20px;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+footer{
+    margin-top:50px;
+    background:#172554;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+@media(max-width:600px){
+
+    header h1{
+        font-size:30px;
+    }
+
+    .container{
+        padding:25px 15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>📚 Belajar Pintar SD</h1>
-        <p>Belajar lebih mudah, menyenangkan, dan interaktif!</p>
-    </header>
+<header>
+    <h1>📚 Belajar Pintar SD</h1>
+    <p>Belajar • Bermain • Berprestasi</p>
+</header>
 
-    <nav>
-        <a href="#beranda">🏠 Beranda</a>
-        <a href="#kelas">📖 Kelas</a>
-        <a href="#kuis">🧠 Kuis</a>
-    </nav>
+<nav>
+    <button onclick="keBeranda()">🏠 Beranda</button>
+    <button onclick="keKelas()">🎓 Kelas</button>
+    <button onclick="keKuis()">🧠 Kuis</button>
+</nav>
 
-    <main class="container" id="beranda">
+<div class="container">
 
-        <section class="welcome">
-            <h2>Selamat Datang! 👋</h2>
-            <p>
-                Ayo belajar bersama dengan materi dan permainan
-                yang menyenangkan.
-            </p>
-        </section>
+<section class="welcome" id="beranda">
+    <h2>Selamat Datang! 👋</h2>
+    <p>
+        Hai teman! Yuk belajar bersama dengan cara
+        yang menyenangkan.
+    </p>
+</section>
 
-        <section id="kelas">
-            <h2 style="text-align:center; margin-bottom:25px;">
-                🎓 Pilih Kelas
-            </h2>
+<section id="kelas">
 
-            <div class="classes">
+<h2 style="text-align:center;margin-bottom:25px;">
+    🎓 Pilih Kelas
+</h2>
 
-                <div class="class-card">
-                    <div class="icon">🌟</div>
-                    <h3>Kelas 1</h3>
-                    <p>Belajar membaca, berhitung, dan mengenal lingkungan.</p>
-                    <button onclick="pilihKelas(1)">Mulai Belajar</button>
-                </div>
+<div class="classes">
 
-                <div class="class-card">
-                    <div class="icon">🚀</div>
-                    <h3>Kelas 2</h3>
-                    <p>Latihan matematika dan Bahasa Indonesia.</p>
-                    <button onclick="pilihKelas(2)">Mulai Belajar</button>
-                </div>
+<div class="card">
+    <div class="icon">🌟</div>
+    <h3>Kelas 1</h3>
+    <p>Belajar dasar membaca dan berhitung.</p>
+    <button class="primary" onclick="pilihKelas(1)">
+        Mulai Belajar
+    </button>
+</div>
 
-                <div class="class-card">
-                    <div class="icon">📚</div>
-                    <h3>Kelas 3</h3>
-                    <p>Belajar IPA, IPS, matematika, dan bahasa.</p>
-                    <button onclick="pilihKelas(3)">Mulai Belajar</button>
-                </div>
+<div class="card">
+    <div class="icon">🚀</div>
+    <h3>Kelas 2</h3>
+    <p>Belajar matematika dan bahasa.</p>
+    <button class="primary" onclick="pilihKelas(2)">
+        Mulai Belajar
+    </button>
+</div>
 
-                <div class="class-card">
-                    <div class="icon">🔬</div>
-                    <h3>Kelas 4</h3>
-                    <p>Eksplorasi ilmu pengetahuan dan matematika.</p>
-                    <button onclick="pilihKelas(4)">Mulai Belajar</button>
-                </div>
+<div class="card">
+    <div class="icon">📚</div>
+    <h3>Kelas 3</h3>
+    <p>Belajar IPA, IPS dan matematika.</p>
+    <button class="primary" onclick="pilihKelas(3)">
+        Mulai Belajar
+    </button>
+</div>
 
-                <div class="class-card">
-                    <div class="icon">🌎</div>
-                    <h3>Kelas 5</h3>
-                    <p>Belajar sains, sosial, bahasa, dan matematika.</p>
-                    <button onclick="pilihKelas(5)">Mulai Belajar</button>
-                </div>
+<div class="card">
+    <div class="icon">🔬</div>
+    <h3>Kelas 4</h3>
+    <p>Eksplorasi ilmu pengetahuan.</p>
+    <button class="primary" onclick="pilihKelas(4)">
+        Mulai Belajar
+    </button>
+</div>
 
-                <div class="class-card">
-                    <div class="icon">🏆</div>
-                    <h3>Kelas 6</h3>
-                    <p>Persiapan menghadapi ujian dengan latihan soal.</p>
-                    <button onclick="pilihKelas(6)">Mulai Belajar</button>
-                </div>
+<div class="card">
+    <div class="icon">🌎</div>
+    <h3>Kelas 5</h3>
+    <p>Belajar sains, sosial dan bahasa.</p>
+    <button class="primary" onclick="pilihKelas(5)">
+        Mulai Belajar
+    </button>
+</div>
 
-            </div>
-        </section>
+<div class="card">
+    <div class="icon">🏆</div>
+    <h3>Kelas 6</h3>
+    <p>Persiapan ujian dan latihan soal.</p>
+    <button class="primary" onclick="pilihKelas(6)">
+        Mulai Belajar
+    </button>
+</div>
 
-        <section class="quiz" id="kuis">
+</div>
+</section>
 
-            <h2>🧠 Kuis Matematika</h2>
+<section id="materi">
 
-            <div class="question">
-                Berapakah hasil dari 7 + 5?
-            </div>
+<h2 style="text-align:center;margin-top:40px;">
+    📖 Materi Kelas <span id="nomorKelas"></span>
+</h2>
 
-            <div class="answers">
-                <button onclick="jawaban(false)">10</button>
-                <button onclick="jawaban(true)">12</button>
-                <button onclick="jawaban(false)">13</button>
-                <button onclick="jawaban(false)">15</button>
-            </div>
+<div class="subjects">
 
-            <div id="result"></div>
+<div class="subject" onclick="bukaMateri('mtk')">
+    ➕<br><b>Matematika</b>
+</div>
 
-        </section>
+<div class="subject" onclick="bukaMateri('indo')">
+    🇮🇩<br><b>Bahasa Indonesia</b>
+</div>
 
-    </main>
+<div class="subject" onclick="bukaMateri('ipa')">
+    🔬<br><b>IPA</b>
+</div>
 
-    <footer>
-        <p>© 2026 Belajar Pintar SD</p>
-        <p>Belajar • Bermain • Berprestasi 🌟</p>
-    </footer>
+<div class="subject" onclick="bukaMateri('ips')">
+    🌎<br><b>IPS</b>
+</div>
 
-    <script>
-        function pilihKelas(kelas) {
-            alert(
-                "Selamat datang di materi Kelas " +
-                kelas +
-                "! 📚"
-            );
-        }
+</div>
 
-        function jawaban(benar) {
-            const result = document.getElementById("result");
+<div class="lesson" id="mtk">
+    <h3>➕ Matematika</h3>
+    <p>
+        Matematika membantu kita belajar menghitung,
+        membandingkan angka dan memecahkan masalah.
+    </p>
+    <p>
+        Contoh: 5 + 3 = <b>8</b>
+    </p>
+</div>
 
-            if (benar) {
-                result.innerHTML =
-                    "🎉 Jawaban benar! Hebat sekali!";
-                result.style.color = "green";
-            } else {
-                result.innerHTML =
-                    "😊 Belum tepat. Coba lagi!";
-                result.style.color = "red";
-            }
-        }
-    </script>
+<div class="lesson" id="indo">
+    <h3>🇮🇩 Bahasa Indonesia</h3>
+    <p>
+        Bahasa Indonesia digunakan untuk membaca,
+        menulis dan berkomunikasi dengan baik.
+    </p>
+    <p>
+        Contoh kalimat: <b>Saya suka belajar.</b>
+    </p>
+</div>
+
+<div class="lesson" id="ipa">
+    <h3>🔬 Ilmu Pengetahuan Alam</h3>
+    <p>
+        IPA mempelajari makhluk hidup, benda,
+        energi dan lingkungan sekitar.
+    </p>
+    <p>
+        Contoh: tumbuhan membutuhkan air dan cahaya
+        matahari untuk tumbuh.
+    </p>
+</div>
+
+<div class="lesson" id="ips">
+    <h3>🌎 Ilmu Pengetahuan Sosial</h3>
+    <p>
+        IPS mempelajari kehidupan masyarakat,
+        lingkungan dan sejarah.
+    </p>
+</div>
+
+</section>
+
+<section class="quiz" id="kuis">
+
+<h2>🧠 Kuis Matematika</h2>
+
+<div class="question">
+    Berapakah hasil dari 8 + 7?
+</div>
+
+<button class="answer" onclick="jawab(false)">
+    12
+</button>
+
+<button class="answer" onclick="jawab(true)">
+    15
+</button>
+
+<button class="answer" onclick="jawab(false)">
+    16
+</button>
+
+<button class="answer" onclick="jawab(false)">
+    18
+</button>
+
+<div id="score"></div>
+
+</section>
+
+</div>
+
+<footer>
+    <p>© 2026 Belajar Pintar SD</p>
+    <p>Semangat belajar! 🌟</p>
+</footer>
+
+<script>
+
+let kelasDipilih = 0;
+let skor = 0;
+
+function pilihKelas(kelas){
+
+    kelasDipilih = kelas;
+
+    document.getElementById("nomorKelas")
+        .textContent = kelas;
+
+    document.getElementById("materi")
+        .style.display = "block";
+
+    document.getElementById("materi")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+function bukaMateri(nama){
+
+    document.querySelectorAll(".lesson")
+        .forEach(function(item){
+            item.style.display = "none";
+        });
+
+    document.getElementById(nama)
+        .style.display = "block";
+
+    document.getElementById(nama)
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+function jawab(benar){
+
+    const hasil = document.getElementById("score");
+
+    if(benar){
+
+        skor += 10;
+
+        hasil.innerHTML =
+            "🎉 Jawaban benar! +10 poin<br>" +
+            "⭐ Skor kamu: " + skor;
+
+        hasil.style.color = "green";
+
+    }else{
+
+        hasil.innerHTML =
+            "😊 Belum tepat. Coba lagi!<br>" +
+            "⭐ Skor kamu: " + skor;
+
+        hasil.style.color = "red";
+    }
+}
+
+function keBeranda(){
+
+    document.getElementById("beranda")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+function keKelas(){
+
+    document.getElementById("kelas")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+function keKuis(){
+
+    document.getElementById("kuis")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+}
+
+</script>
 
 </body>
 </html>
