@@ -4,56 +4,65 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Belajar Pintar SD</title>
+<title>Belajar Pintar SD - Tahap 1</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Arial,sans-serif;
+    font-family:Arial, sans-serif;
 }
 
 body{
-    background:#f4f7ff;
+    min-height:100vh;
+    background:linear-gradient(135deg,#eef4ff,#f8f0ff);
     color:#222;
 }
+
+/* HEADER */
 
 header{
     background:linear-gradient(135deg,#2563eb,#7c3aed);
     color:white;
+    padding:25px 20px;
     text-align:center;
-    padding:45px 20px;
 }
 
 header h1{
-    font-size:38px;
-    margin-bottom:10px;
+    font-size:32px;
+    margin-bottom:7px;
 }
 
 header p{
-    font-size:18px;
+    font-size:16px;
 }
+
+/* NAVIGATION */
 
 nav{
     background:white;
-    padding:15px;
+    padding:12px;
     text-align:center;
-    box-shadow:0 3px 12px rgba(0,0,0,.1);
-    position:sticky;
-    top:0;
-    z-index:10;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
 }
 
 nav button{
-    border:0;
+    border:none;
     background:none;
     color:#2563eb;
     font-weight:bold;
-    margin:5px 10px;
     cursor:pointer;
+    margin:5px 12px;
     font-size:15px;
 }
+
+nav button:hover{
+    color:#7c3aed;
+}
+
+/* MAIN */
 
 .container{
     max-width:1100px;
@@ -61,9 +70,11 @@ nav button{
     padding:35px 20px;
 }
 
+/* WELCOME */
+
 .welcome{
     text-align:center;
-    margin-bottom:35px;
+    margin-bottom:30px;
 }
 
 .welcome h2{
@@ -71,133 +82,170 @@ nav button{
     margin-bottom:10px;
 }
 
-.classes{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-    gap:20px;
-}
+/* LOGIN */
 
-.card{
+.login-box{
+    max-width:500px;
+    margin:30px auto;
     background:white;
-    padding:25px;
-    border-radius:20px;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 8px 30px rgba(0,0,0,.10);
     text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
-    transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-6px);
+.login-box .emoji{
+    font-size:60px;
+    margin-bottom:15px;
 }
 
-.icon{
-    font-size:45px;
-    margin-bottom:12px;
-}
-
-.card h3{
+.login-box h2{
     color:#2563eb;
     margin-bottom:10px;
 }
 
-button.primary{
-    background:#2563eb;
-    color:white;
-    border:0;
-    padding:12px 20px;
-    border-radius:10px;
-    cursor:pointer;
-    margin-top:15px;
-    font-weight:bold;
+.login-box p{
+    color:#666;
+    margin-bottom:20px;
 }
 
-button.primary:hover{
+.login-box input{
+    width:100%;
+    padding:15px;
+    border:2px solid #dbe4ff;
+    border-radius:12px;
+    font-size:16px;
+    outline:none;
+}
+
+.login-box input:focus{
+    border-color:#2563eb;
+}
+
+.primary{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:13px 22px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.primary:hover{
     background:#7c3aed;
 }
 
-#materi{
+/* DASHBOARD */
+
+#dashboard{
     display:none;
-    margin-top:40px;
 }
 
-.subjects{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-    gap:15px;
-    margin-top:20px;
-}
-
-.subject{
+.student-card{
     background:white;
-    padding:20px;
-    border-radius:15px;
-    text-align:center;
-    cursor:pointer;
-    box-shadow:0 4px 15px rgba(0,0,0,.07);
-}
-
-.subject:hover{
-    background:#eef2ff;
-}
-
-.lesson{
-    background:white;
-    margin-top:25px;
     padding:25px;
     border-radius:20px;
-    display:none;
-    line-height:1.7;
-    box-shadow:0 4px 15px rgba(0,0,0,.08);
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    margin-bottom:30px;
 }
 
-.lesson h3{
+.student-card h2{
+    color:#2563eb;
+    margin-bottom:8px;
+}
+
+.student-info{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    flex-wrap:wrap;
+    margin-top:15px;
+}
+
+.info{
+    background:#eef4ff;
+    padding:15px;
+    border-radius:12px;
+    flex:1;
+    min-width:180px;
+}
+
+.info strong{
+    display:block;
+    color:#2563eb;
+    margin-bottom:5px;
+}
+
+/* CLASS */
+
+.section-title{
+    text-align:center;
+    margin:30px 0 20px;
     color:#7c3aed;
-    margin-bottom:12px;
 }
 
-.quiz{
-    margin-top:40px;
+.classes{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:18px;
+}
+
+.class-card{
     background:white;
-    padding:30px;
+    padding:25px;
     border-radius:20px;
     text-align:center;
-    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    transition:.3s;
 }
 
-.quiz h2{
-    color:#7c3aed;
-    margin-bottom:20px;
+.class-card:hover{
+    transform:translateY(-6px);
 }
 
-.question{
-    font-size:20px;
-    font-weight:bold;
-    margin-bottom:20px;
+.class-card.selected{
+    border:3px solid #2563eb;
 }
 
-.answer{
-    display:block;
-    width:100%;
-    max-width:500px;
-    margin:10px auto;
-    padding:14px;
-    background:white;
-    border:2px solid #2563eb;
+.class-icon{
+    font-size:45px;
+    margin-bottom:10px;
+}
+
+.class-card h3{
     color:#2563eb;
-    border-radius:12px;
-    cursor:pointer;
+    margin-bottom:8px;
 }
 
-.answer:hover{
-    background:#2563eb;
-    color:white;
+.class-card p{
+    color:#666;
+    line-height:1.5;
 }
 
-#score{
-    font-size:20px;
-    font-weight:bold;
-    margin-top:20px;
+.class-card button{
+    margin-top:15px;
 }
+
+/* START AREA */
+
+.start-area{
+    text-align:center;
+    background:white;
+    padding:30px;
+    margin-top:30px;
+    border-radius:20px;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+#selectedMessage{
+    margin:15px 0;
+    color:#555;
+    font-size:17px;
+}
+
+/* FOOTER */
 
 footer{
     margin-top:50px;
@@ -205,301 +253,589 @@ footer{
     color:white;
     text-align:center;
     padding:25px;
+    line-height:1.8;
 }
+
+/* MOBILE */
 
 @media(max-width:600px){
 
     header h1{
-        font-size:30px;
+        font-size:27px;
     }
 
     .container{
         padding:25px 15px;
     }
 
-    .card{
-        padding:20px;
+    .login-box{
+        padding:25px 20px;
     }
+
+    nav button{
+        margin:5px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
+
     <h1>📚 Belajar Pintar SD</h1>
-    <p>Belajar • Bermain • Berprestasi</p>
+
+    <p>
+        Belajar • Bermain • Berprestasi
+    </p>
+
 </header>
 
+
 <nav>
-    <button onclick="keBeranda()">🏠 Beranda</button>
-    <button onclick="keKelas()">🎓 Kelas</button>
-    <button onclick="keKuis()">🧠 Kuis</button>
+
+    <button onclick="keBeranda()">
+        🏠 Beranda
+    </button>
+
+    <button onclick="keLogin()">
+        👤 Mulai
+    </button>
+
+    <button onclick="keKelas()">
+        🎓 Pilih Kelas
+    </button>
+
 </nav>
 
-<div class="container">
 
-<section class="welcome" id="beranda">
-    <h2>Selamat Datang! 👋</h2>
-    <p>
-        Hai teman! Yuk belajar bersama dengan cara
-        yang menyenangkan.
-    </p>
-</section>
+<main class="container">
 
-<section id="kelas">
 
-<h2 style="text-align:center;margin-bottom:25px;">
-    🎓 Pilih Kelas
-</h2>
+<!-- BERANDA -->
 
-<div class="classes">
+<section id="beranda">
 
-<div class="card">
-    <div class="icon">🌟</div>
-    <h3>Kelas 1</h3>
-    <p>Belajar dasar membaca dan berhitung.</p>
-    <button class="primary" onclick="pilihKelas(1)">
-        Mulai Belajar
-    </button>
-</div>
+    <div class="welcome">
 
-<div class="card">
-    <div class="icon">🚀</div>
-    <h3>Kelas 2</h3>
-    <p>Belajar matematika dan bahasa.</p>
-    <button class="primary" onclick="pilihKelas(2)">
-        Mulai Belajar
-    </button>
-</div>
+        <h2>
+            Selamat Datang! 👋
+        </h2>
 
-<div class="card">
-    <div class="icon">📚</div>
-    <h3>Kelas 3</h3>
-    <p>Belajar IPA, IPS dan matematika.</p>
-    <button class="primary" onclick="pilihKelas(3)">
-        Mulai Belajar
-    </button>
-</div>
+        <p>
+            Aplikasi belajar sederhana untuk
+            membantu siswa SD belajar dengan menyenangkan.
+        </p>
 
-<div class="card">
-    <div class="icon">🔬</div>
-    <h3>Kelas 4</h3>
-    <p>Eksplorasi ilmu pengetahuan.</p>
-    <button class="primary" onclick="pilihKelas(4)">
-        Mulai Belajar
-    </button>
-</div>
-
-<div class="card">
-    <div class="icon">🌎</div>
-    <h3>Kelas 5</h3>
-    <p>Belajar sains, sosial dan bahasa.</p>
-    <button class="primary" onclick="pilihKelas(5)">
-        Mulai Belajar
-    </button>
-</div>
-
-<div class="card">
-    <div class="icon">🏆</div>
-    <h3>Kelas 6</h3>
-    <p>Persiapan ujian dan latihan soal.</p>
-    <button class="primary" onclick="pilihKelas(6)">
-        Mulai Belajar
-    </button>
-</div>
-
-</div>
-</section>
-
-<section id="materi">
-
-<h2 style="text-align:center;margin-top:40px;">
-    📖 Materi Kelas <span id="nomorKelas"></span>
-</h2>
-
-<div class="subjects">
-
-<div class="subject" onclick="bukaMateri('mtk')">
-    ➕<br><b>Matematika</b>
-</div>
-
-<div class="subject" onclick="bukaMateri('indo')">
-    🇮🇩<br><b>Bahasa Indonesia</b>
-</div>
-
-<div class="subject" onclick="bukaMateri('ipa')">
-    🔬<br><b>IPA</b>
-</div>
-
-<div class="subject" onclick="bukaMateri('ips')">
-    🌎<br><b>IPS</b>
-</div>
-
-</div>
-
-<div class="lesson" id="mtk">
-    <h3>➕ Matematika</h3>
-    <p>
-        Matematika membantu kita belajar menghitung,
-        membandingkan angka dan memecahkan masalah.
-    </p>
-    <p>
-        Contoh: 5 + 3 = <b>8</b>
-    </p>
-</div>
-
-<div class="lesson" id="indo">
-    <h3>🇮🇩 Bahasa Indonesia</h3>
-    <p>
-        Bahasa Indonesia digunakan untuk membaca,
-        menulis dan berkomunikasi dengan baik.
-    </p>
-    <p>
-        Contoh kalimat: <b>Saya suka belajar.</b>
-    </p>
-</div>
-
-<div class="lesson" id="ipa">
-    <h3>🔬 Ilmu Pengetahuan Alam</h3>
-    <p>
-        IPA mempelajari makhluk hidup, benda,
-        energi dan lingkungan sekitar.
-    </p>
-    <p>
-        Contoh: tumbuhan membutuhkan air dan cahaya
-        matahari untuk tumbuh.
-    </p>
-</div>
-
-<div class="lesson" id="ips">
-    <h3>🌎 Ilmu Pengetahuan Sosial</h3>
-    <p>
-        IPS mempelajari kehidupan masyarakat,
-        lingkungan dan sejarah.
-    </p>
-</div>
+    </div>
 
 </section>
 
-<section class="quiz" id="kuis">
 
-<h2>🧠 Kuis Matematika</h2>
+<!-- LOGIN -->
 
-<div class="question">
-    Berapakah hasil dari 8 + 7?
-</div>
+<section id="login">
 
-<button class="answer" onclick="jawab(false)">
-    12
-</button>
+    <div class="login-box">
 
-<button class="answer" onclick="jawab(true)">
-    15
-</button>
+        <div class="emoji">
+            👨‍🎓
+        </div>
 
-<button class="answer" onclick="jawab(false)">
-    16
-</button>
+        <h2>
+            Yuk Mulai Belajar!
+        </h2>
 
-<button class="answer" onclick="jawab(false)">
-    18
-</button>
+        <p>
+            Masukkan nama kamu sebelum belajar.
+        </p>
 
-<div id="score"></div>
+        <input
+            type="text"
+            id="namaSiswa"
+            placeholder="Contoh: Adnan"
+            maxlength="30"
+        >
+
+        <br><br>
+
+        <button
+            class="primary"
+            onclick="mulaiBelajar()"
+        >
+            🚀 Mulai Belajar
+        </button>
+
+        <p
+            id="pesanNama"
+            style="margin-top:15px;color:red;"
+        ></p>
+
+    </div>
 
 </section>
 
-</div>
+
+<!-- DASHBOARD -->
+
+<section id="dashboard">
+
+    <div class="student-card">
+
+        <h2>
+            👋 Halo, <span id="namaTampil"></span>!
+        </h2>
+
+        <p>
+            Selamat datang di ruang belajar kamu.
+        </p>
+
+        <div class="student-info">
+
+            <div class="info">
+
+                <strong>
+                    👤 Nama
+                </strong>
+
+                <span id="namaInfo">
+                    -
+                </span>
+
+            </div>
+
+            <div class="info">
+
+                <strong>
+                    🎓 Kelas
+                </strong>
+
+                <span id="kelasInfo">
+                    Belum dipilih
+                </span>
+
+            </div>
+
+            <div class="info">
+
+                <strong>
+                    ⭐ Poin
+                </strong>
+
+                <span>
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <h2 class="section-title">
+        🎓 Pilih Kelas Kamu
+    </h2>
+
+
+    <div class="classes">
+
+
+        <!-- KELAS 1 -->
+
+        <div
+            class="class-card"
+            id="card1"
+        >
+
+            <div class="class-icon">
+                🌟
+            </div>
+
+            <h3>
+                Kelas 1
+            </h3>
+
+            <p>
+                Belajar membaca, menulis,
+                berhitung dan mengenal lingkungan.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(1)"
+            >
+                Pilih Kelas 1
+            </button>
+
+        </div>
+
+
+        <!-- KELAS 2 -->
+
+        <div
+            class="class-card"
+            id="card2"
+        >
+
+            <div class="class-icon">
+                🚀
+            </div>
+
+            <h3>
+                Kelas 2
+            </h3>
+
+            <p>
+                Belajar matematika,
+                bahasa dan lingkungan.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(2)"
+            >
+                Pilih Kelas 2
+            </button>
+
+        </div>
+
+
+        <!-- KELAS 3 -->
+
+        <div
+            class="class-card"
+            id="card3"
+        >
+
+            <div class="class-icon">
+                📚
+            </div>
+
+            <h3>
+                Kelas 3
+            </h3>
+
+            <p>
+                Belajar matematika,
+                IPA, IPS dan bahasa.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(3)"
+            >
+                Pilih Kelas 3
+            </button>
+
+        </div>
+
+
+        <!-- KELAS 4 -->
+
+        <div
+            class="class-card"
+            id="card4"
+        >
+
+            <div class="class-icon">
+                🔬
+            </div>
+
+            <h3>
+                Kelas 4
+            </h3>
+
+            <p>
+                Mengenal sains,
+                sosial dan matematika.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(4)"
+            >
+                Pilih Kelas 4
+            </button>
+
+        </div>
+
+
+        <!-- KELAS 5 -->
+
+        <div
+            class="class-card"
+            id="card5"
+        >
+
+            <div class="class-icon">
+                🌎
+            </div>
+
+            <h3>
+                Kelas 5
+            </h3>
+
+            <p>
+                Belajar sains, sosial,
+                bahasa dan matematika.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(5)"
+            >
+                Pilih Kelas 5
+            </button>
+
+        </div>
+
+
+        <!-- KELAS 6 -->
+
+        <div
+            class="class-card"
+            id="card6"
+        >
+
+            <div class="class-icon">
+                🏆
+            </div>
+
+            <h3>
+                Kelas 6
+            </h3>
+
+            <p>
+                Latihan soal dan
+                persiapan menghadapi ujian.
+            </p>
+
+            <button
+                class="primary"
+                onclick="pilihKelas(6)"
+            >
+                Pilih Kelas 6
+            </button>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="start-area">
+
+        <h2>
+            📖 Kelas yang Dipilih
+        </h2>
+
+        <p id="selectedMessage">
+            Silakan pilih kelas terlebih dahulu.
+        </p>
+
+        <button
+            class="primary"
+            id="lanjutButton"
+            onclick="lanjutBelajar()"
+            style="display:none;"
+        >
+            🚀 Lanjut Belajar
+        </button>
+
+    </div>
+
+
+</section>
+
+
+</main>
+
 
 <footer>
-    <p>© 2026 Belajar Pintar SD</p>
-    <p>Semangat belajar! 🌟</p>
+
+    <p>
+        © 2026 Belajar Pintar SD
+    </p>
+
+    <p>
+        📚 Belajar • 🧠 Berlatih • 🏆 Berprestasi
+    </p>
+
 </footer>
+
 
 <script>
 
+/* DATA SISWA */
+
+let namaSiswa = "";
+
 let kelasDipilih = 0;
-let skor = 0;
+
+
+/* MULAI BELAJAR */
+
+function mulaiBelajar(){
+
+    const input =
+        document.getElementById("namaSiswa");
+
+    const nama =
+        input.value.trim();
+
+    const pesan =
+        document.getElementById("pesanNama");
+
+
+    if(nama === ""){
+
+        pesan.textContent =
+            "⚠️ Silakan masukkan nama terlebih dahulu.";
+
+        return;
+    }
+
+
+    namaSiswa = nama;
+
+
+    document.getElementById("namaTampil")
+        .textContent = namaSiswa;
+
+
+    document.getElementById("namaInfo")
+        .textContent = namaSiswa;
+
+
+    document.getElementById("login")
+        .style.display = "none";
+
+
+    document.getElementById("dashboard")
+        .style.display = "block";
+
+
+    document.getElementById("dashboard")
+        .scrollIntoView({
+            behavior:"smooth"
+        });
+
+}
+
+
+/* PILIH KELAS */
 
 function pilihKelas(kelas){
 
     kelasDipilih = kelas;
 
-    document.getElementById("nomorKelas")
-        .textContent = kelas;
 
-    document.getElementById("materi")
-        .style.display = "block";
+    /* Hapus pilihan sebelumnya */
 
-    document.getElementById("materi")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-}
+    for(let i = 1; i <= 6; i++){
 
-function bukaMateri(nama){
+        document
+            .getElementById("card" + i)
+            .classList.remove("selected");
 
-    document.querySelectorAll(".lesson")
-        .forEach(function(item){
-            item.style.display = "none";
-        });
-
-    document.getElementById(nama)
-        .style.display = "block";
-
-    document.getElementById(nama)
-        .scrollIntoView({
-            behavior:"smooth"
-        });
-}
-
-function jawab(benar){
-
-    const hasil = document.getElementById("score");
-
-    if(benar){
-
-        skor += 10;
-
-        hasil.innerHTML =
-            "🎉 Jawaban benar! +10 poin<br>" +
-            "⭐ Skor kamu: " + skor;
-
-        hasil.style.color = "green";
-
-    }else{
-
-        hasil.innerHTML =
-            "😊 Belum tepat. Coba lagi!<br>" +
-            "⭐ Skor kamu: " + skor;
-
-        hasil.style.color = "red";
     }
+
+
+    /* Tandai kelas */
+
+    document
+        .getElementById("card" + kelas)
+        .classList.add("selected");
+
+
+    document.getElementById("kelasInfo")
+        .textContent =
+        "Kelas " + kelas;
+
+
+    document.getElementById("selectedMessage")
+        .innerHTML =
+        "🎉 Kamu memilih <strong>Kelas " +
+        kelas +
+        "</strong>. Siap untuk belajar?";
+
+
+    document.getElementById("lanjutButton")
+        .style.display = "inline-block";
+
 }
+
+
+/* LANJUT BELAJAR */
+
+function lanjutBelajar(){
+
+    if(kelasDipilih === 0){
+
+        alert(
+            "Silakan pilih kelas terlebih dahulu."
+        );
+
+        return;
+    }
+
+
+    alert(
+        "🚀 Mantap, " +
+        namaSiswa +
+        "!\n\n" +
+        "Kamu akan masuk ke materi Kelas " +
+        kelasDipilih +
+        ".\n\n" +
+        "Fitur materi akan kita tambahkan pada Tahap 2. 📚"
+    );
+
+}
+
+
+/* NAVIGASI */
 
 function keBeranda(){
 
-    document.getElementById("beranda")
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+function keLogin(){
+
+    document.getElementById("login")
         .scrollIntoView({
             behavior:"smooth"
         });
+
 }
+
 
 function keKelas(){
 
-    document.getElementById("kelas")
+    if(
+        document.getElementById("dashboard")
+            .style.display !== "block"
+    ){
+
+        keLogin();
+
+        return;
+    }
+
+
+    document.getElementById("dashboard")
         .scrollIntoView({
             behavior:"smooth"
         });
-}
 
-function keKuis(){
-
-    document.getElementById("kuis")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
 }
 
 </script>
